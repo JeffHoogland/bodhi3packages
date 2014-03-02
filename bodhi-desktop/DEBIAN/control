@@ -1,0 +1,10 @@
+Package: bodhi-desktop
+Version: 0.5
+Section: main
+Priority: optional
+Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, elaptopcheck, esudo, bodhi-skel, e19
+Architecture: all
+Maintainer: Jeff Hoogland
+Description: Bodhi Desktop
+ A meta package that pulls in Bodhi related packages
+

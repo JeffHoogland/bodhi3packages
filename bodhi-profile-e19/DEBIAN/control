@@ -1,0 +1,10 @@
+Package: bodhi-profile-e19
+Version: 0.5
+Section: main
+Priority: optional
+Depends: e19
+Architecture: all
+Maintainer: Jeff Hoogland
+Description: Bodhi Profile
+ The default E19 profile for Bodhi Linux
+
