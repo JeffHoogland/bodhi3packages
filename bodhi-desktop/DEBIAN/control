@@ -1,8 +1,8 @@
 Package: bodhi-desktop
-Version: 0.5
+Version: 0.6
 Section: main
 Priority: optional
-Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, elaptopcheck, esudo, bodhi-skel, e19
+Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, elaptopcheck, esudo, bodhi-skel, e19, bodhi-profile-e19
 Architecture: all
 Maintainer: Jeff Hoogland
 Description: Bodhi Desktop
