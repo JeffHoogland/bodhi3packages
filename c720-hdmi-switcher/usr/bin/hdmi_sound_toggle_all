@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for dir in /home/*/
+do
+    dir=${dir%*/}
+    sudo -u ${dir##*/} /usr/bin/hdmi_sound_toggle
+done

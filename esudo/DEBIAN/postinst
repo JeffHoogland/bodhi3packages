@@ -1,0 +1,25 @@
+#!/bin/sh
+mv /usr/bin/gksu /usr/bin/gksu-original
+mv /usr/bin/esudo-gksu /usr/bin/gksu
+cp -s -f /usr/bin/esudo /usr/bin/gksudo
+
+FILE="/usr/bin/pkexec"
+
+if [ -f $FILE ];
+then
+   echo "File $FILE exists, replacing it with esudo"
+   mv /usr/bin/pkexec /usr/bin/pkexec-old
+else
+   echo "File $FILE does not exist."
+fi
+
+ln -s /usr/bin/esudo /usr/bin/pkexec
+
+SUDOER='/etc/sudoers.d/esudo-properties'
+CONFIG='/etc/esudo/service'
+
+chmod 0440 $SUDOER
+chown root $SUDOER
+chgrp root $SUDOER
+chown -R root $CONFIG
+chgrp -R root $CONFIG

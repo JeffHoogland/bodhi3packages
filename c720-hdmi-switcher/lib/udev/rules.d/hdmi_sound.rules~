@@ -1,0 +1,2 @@
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/usr/bin/sudo -u jeff /usr/bin/hdmi_sound_toggle"
+

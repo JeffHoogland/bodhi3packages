@@ -1,0 +1,19 @@
+[settings]
+default-encoding=ISO-8859-1
+enable-developer-extras=true
+enable-site-specific-quirks=true
+enable-javascript=true
+default-charset=ISO-8859-1
+last-web-search=2
+last-window-state=MIDORI_WINDOW_MAXIMIZED
+location-entry-search=https://duckduckgo.com/?q=%s
+toolbar-items=TabNew,Back,NextForward,ReloadStop,BookmarkAdd,Location,Search,Trash,CompactMenu
+homepage=file:///usr/share/bodhi/quickstart/quickstartEN/index.html
+tabhome=about:dial
+download-folder=/home/bodhi32/Downloads
+text-editor=leafpad %f
+load-on-startup=MIDORI_STARTUP_HOMEPAGE
+user-agent=Mozilla/5.0 (X11; Linux) AppleWebKit/538.7 (KHTML, like Gecko) Chrome/18.0.1025.133 Safari/538.7 Midori/0.5
+
+[extensions]
+libadblock.so=true

@@ -1,0 +1,10 @@
+[Desktop Entry] 
+Name=elaptopcheck
+Comment=Toggles the e battery module 
+Exec=/usr/bin/elaptopcheck 
+Icon=false 
+NoDisplay=true 
+Terminal=false 
+Type=Application 
+Categories=System;
+StartupNotify=true

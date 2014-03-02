@@ -1,0 +1,12 @@
+#!/bin/bash
+
+battery=`acpi`
+
+if [ -n "$battery" ]; then
+    echo "Found a battery - enabling battery module"
+    enlightenment_remote -module-load battery
+    enlightenment_remote -module-enable battery
+else
+    echo "No battery found - disabling battery module"
+    enlightenment_remote -module-unload battery
+fi

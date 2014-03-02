@@ -1,0 +1,31 @@
+#! /bin/sh
+
+rm_non_conffile() {
+    NEW_CONFFILE=$1
+    OLD_CONFFILE=$2
+    [ -e "$NEW_CONFFILE" ] || return 0
+    [ -e "$OLD_CONFFILE" ] || return 0
+
+    local new_md5sum="$(md5sum $NEW_CONFFILE | sed -e 's/ .*//')"
+    local old_md5sum="$(md5sum $OLD_CONFFILE | sed -e 's/ .*//')"
+    if [ "$new_md5sum" = "$old_md5sum" ]; then
+        rm -f "$NEW_CONFFILE"
+    fi
+}
+
+set -e
+
+case "$1" in
+  remove|purge)
+    rm_non_conffile /etc/lightdm/lightdm.conf /usr/share/bodhi/lightdm/lightdm.conf
+    ;;
+esac
+
+if [ "$1" = "remove" ] ; then
+  update-alternatives --remove lightdm-gtk-greeter-config-derivative \
+    /etc/lightdm/bodhi-lightdm-gtk-greeter.conf
+fi
+
+#DEBHELPER#
+
+

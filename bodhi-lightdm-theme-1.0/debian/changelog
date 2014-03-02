@@ -1,0 +1,118 @@
+bodhi-lightdm-theme (1.03) precise; urgency=low
+
+  * Fix a autologin issue for the live disc (LP: #940255)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 16 Mar 2012 00:45:19 -0500
+
+bodhi-lightdm-theme (1.0) precise; urgency=low
+
+  * No change rebuild.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 23 Feb 2012 20:25:21 -0600
+
+bodhi-lightdm-theme (0.9) oneiric; urgency=low
+
+  * Register with the alternatives system for the lightdm background.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 28 Sep 2011 21:34:20 -0500
+
+bodhi-lightdm-theme (0.8) oneiric; urgency=low
+
+  * Use lightdm-set-defaults to set the session if an existing conffile is in
+    place.
+  * Add a commented out autologin key to make sure user-setup autologin works.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 28 Aug 2011 21:45:59 -0500
+
+bodhi-lightdm-theme (0.7) oneiric; urgency=low
+
+  * Rename source package for oneiric's switch to lightdm.
+  * Make the package a native package.
+  * debian/control:
+    - Bump standards version.
+    - Drop all GDM references.
+    - depends on lightdm theme.
+  * Add a lightdm conf file.
+  * Add a lightdm gtk greeter conf file.
+  * Divert the regular GTK theme conffile out of the way for ours.
+    - Make a symlink to our conffile in it's place.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 01 Aug 2011 00:14:22 -0500
+
+bodhi-gdm-theme (0.6-0ubuntu1) lucid; urgency=low
+
+  * Rename xsplash directory to bodhi directory. (LP: #550088)
+  * Drop unused backgrounds for xsplash.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 28 Mar 2010 12:35:57 -0500
+
+bodhi-gdm-theme (0.5-0ubuntu1) lucid; urgency=low
+
+  * debian/control:
+    - Drop references to xplash.
+    - Bump standards version
+    - Bump debhelper build dependency
+    - Drop cdbs build dependency
+    - Build depends on bodhi-common.
+  * debian/compat:
+    - Bump
+  * debian/rules:
+    - Use the standard bodhi rules file.
+  * Keep the xsplash files though, because we still refer to them elsewhere.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 28 Mar 2010 00:38:55 -0500
+
+bodhi-gdm-theme (0.4-0ubuntu1) karmic; urgency=low
+
+  * Add an xsplash theme.
+  * Drop old pre-karmic gdm theme.
+  * Add in a few .desktop files to spawn the right things in gdm (xfsettingsd
+    etc) borrowed from xubuntu-artwork source package.
+  * debian/control:
+    - P/C/R for xsplash-artwork.
+    - Update description.
+    - Recommends for xsplash, xfwm4, xfce4-settings.
+    - Depends on feh.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 20 Sep 2009 00:48:30 -0500
+
+bodhi-gdm-theme (0.3-0ubuntu3) karmic; urgency=low
+
+  * debian/control:
+    - Depends on ttf-dejavu instead of ttf-bitstream-vera.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Thu, 27 Aug 2009 22:21:12 -0500
+
+bodhi-gdm-theme (0.3-0ubuntu2) intrepid; urgency=low
+
+  * debian/control:
+    - Add provides for gdm-theme.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Fri, 15 Aug 2008 12:41:32 -0500
+
+bodhi-gdm-theme (0.3-0ubuntu1) hardy; urgency=low
+
+  [ Nick Fox ]
+  * New Theme Based on Infinity Grey v0.5
+  * Added bodhi Logo
+  * Adjusted colors slightly for bodhi
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 09 Apr 2008 00:33:28 -0500
+
+bodhi-gdm-theme (0.2-0ubuntu1) gutsy; urgency=low
+
+  * New logo.
+  * debian/rules:
+    - Update to new redundant get-orig-source 
+  * debian/control:
+    - Update maintainer to new Ubuntu Mythtv Team list
+    - Add X-Vcs-Bzr links.
+    - Make the arch all instead of any
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Mon, 30 Jul 2007 00:17:02 -0500
+
+bodhi-gdm-theme (0.1-0ubuntu1) gutsy; urgency=low
+
+  * Initial release.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Tue, 05 June 2007 16:41:23 -0500

@@ -1,0 +1,2 @@
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/usr/bin/hdmi_sound_toggle_all"
+

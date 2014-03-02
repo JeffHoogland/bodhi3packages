@@ -1,0 +1,36 @@
+This package was debianized by Mario Limonciello <superm1@ubuntu.com> on
+Tue, 05 June 2007 16:41:23 -0500
+
+Author & Copyright: 
+	© 2008 Nick Fox <nickj.fox@gmail.com> (Remix for Mythbuntu Only)
+	
+
+Sources:
+	* The mythbuntu-artwork logo,
+	  by Troy Sobotka <troy.sobotka@gmail.com>
+	* All icons used were provided by the Infinty Grey GDM theme at
+	  http://www.gnome-look.org/content/show.php/Infinity+Grey+GDM+Theme?
+          content=75444
+	  by Steve Shepard
+
+License:
+
+ This Theme Package is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+
+ This theme package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+
+ You should have received a copy of the GNU Lesser General Public
+ License along with this theme package; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+On Debian & Ubuntu systems, a complete copy of the LGPL can be found under
+/usr/share/common-licenses/LGPL
+
+The Debian packaging is © 2007, Mario Limonciello <superm1@ubuntu.com> and is
+also licensed under the LGPL.

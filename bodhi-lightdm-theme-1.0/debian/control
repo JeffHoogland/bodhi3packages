@@ -1,0 +1,17 @@
+Source: bodhi-lightdm-theme
+Priority: optional
+Section: misc
+Maintainer: Jeff Hoogland
+Standards-Version: 3.9.1
+Build-Depends: debhelper (>= 7)
+
+Package: bodhi-lightdm-theme
+Architecture: all
+Depends: ${misc:Depends}, lightdm-gtk-greeter
+Description: Bodhi LightDM setup
+ The lightdm greeter theme and configuration
+ used for a standalone Bodhi installation.
+ .
+ This package can also be installed on
+ other Ubuntu desktops desiring to use this
+ theme, but it will replace the LightDM theme.
