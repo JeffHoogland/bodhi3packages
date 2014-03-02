@@ -1,0 +1,9 @@
+Package: radiance-blue-theme-e19
+Version: 0.5
+Section: main
+Architecture: all
+Priority: optional
+Maintainer: Jeff Hoogland
+Description: Radiance Theme - Blue
+ Radiance E19 theme - blue
+
