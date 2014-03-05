@@ -1,2 +1,2 @@
-SUBSYSTEM=="drm", ACTION=="change", RUN+="/usr/bin/hdmi_sound_toggle_all"
+SUBSYSTEM=="drm", ACTION=="change", HOTPLUG=="1", RUN+="/usr/bin/hdmi_sound_toggle_all"
 

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Hidden=false
+Exec=hdmi_sound_toggle
+Icon=sound
+Type=Application
+Categories=System;
+NoDisplay=false
+StartupNotify=true
+Terminal=false
+Name=Toggle HDMI Audio
