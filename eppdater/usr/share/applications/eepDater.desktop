@@ -1,0 +1,11 @@
+[Desktop Entry]
+Hidden=false
+Exec=eepDater
+Icon=software-center
+Type=Application
+Categories=System;
+NoDisplay=false
+StartupNotify=true
+Comment=An elementary frontend for system updates written in py-efls.
+Terminal=false
+Name=eepDater
