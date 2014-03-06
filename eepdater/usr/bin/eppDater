@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python /opt/eepDater/eepDater.py
