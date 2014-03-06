@@ -1,6 +1,6 @@
 [Desktop Entry]
 Hidden=false
-Exec=eepDater
+Exec=esudo eepDater
 Icon=software-center
 Type=Application
 Categories=System;

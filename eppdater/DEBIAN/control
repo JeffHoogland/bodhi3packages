@@ -3,7 +3,7 @@ Version: 0.1
 Section: main
 Priority: optional
 Architecture: all
-Depends: python-efl, python-apt
+Depends: python-efl, python-apt, esudo
 Maintainer: Jeff Hoogland
 Description: eepDater GUI System Updater
  An Elementary GUI for installing system updates written in py-efls.
