@@ -1,7 +1,6 @@
 Package: bodhi-profile-e19
-Version: 0.6
+Version: 0.7
 Section: main
-Depends: radiance-blue-theme-e19
 Priority: optional
 Depends: e19
 Architecture: all
