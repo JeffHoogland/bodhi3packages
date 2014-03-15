@@ -1,0 +1,9 @@
+Package: bodhi-plymouth-theme
+Version: 0.1
+Section: main
+Priority: optional
+Architecture: all
+Installed-Size:
+Maintainer: Jeff Hoogland
+Description: Bodhi Linux Plymouth Theme
+ A plymouth theme for Bodhi Linux
