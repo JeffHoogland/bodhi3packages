@@ -1,8 +1,8 @@
 Package: bodhi-desktop
-Version: 0.7
+Version: 0.8
 Section: main
 Priority: optional
-Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, elaptopcheck, esudo, bodhi-skel, e19, bodhi-profile-e19, eepdater, matrilneare-icon-theme
+Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, elaptopcheck, esudo, bodhi-skel, e19 | enlightenment, bodhi-profile-e19 | bodhi-profile-e17, eepdater, matrilneare-icon-theme, bodhi-plymouth-theme
 Architecture: all
 Maintainer: Jeff Hoogland
 Description: Bodhi Desktop
