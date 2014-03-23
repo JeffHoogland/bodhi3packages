@@ -1,0 +1,9 @@
+Package: epad
+Version: 0.1
+Section: main
+Priority: optional
+Architecture: all
+Depends: python-efl
+Maintainer: Jeff Hoogland
+Description: ePad Text Editor
+ An Elementary GUI for editing text files
