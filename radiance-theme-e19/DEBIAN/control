@@ -1,0 +1,9 @@
+Package: radiance-theme-e19
+Version: 0.1
+Section: main
+Architecture: all
+Priority: optional
+Maintainer: Jeff Hoogland
+Description: Radiance Theme
+ Radiance E19 theme
+
