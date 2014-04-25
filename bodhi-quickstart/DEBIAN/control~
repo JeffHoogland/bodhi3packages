@@ -1,0 +1,10 @@
+Package: bodhi-quickstart
+Version: 1.4.1
+Section: main
+Priority: optional
+Architecture: all
+Depends: bodhi-e17guide, ttf-ubuntu-font-family
+Installed-Size:
+Maintainer: Jeff Hoogland
+Description: Bodhi Quickstart Guide
+ Bodhi Quick Start Guide Files

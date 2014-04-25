@@ -1,0 +1,247 @@
+/* ---------------------------------------------------------------------------
+ *  FILE:        Styles.css
+ *  DESCRIPTION: Global Stylesheet for www.bodhilinux.com
+ *  AUTHORS:     Jason Peel, Ken LaBuda, Joris van Dijk, et al.
+ *  MODIFIED:    2011-11-28
+ * ---------------------------------------------------------------------------
+ */
+/* ----------------------------------------------------------------------------
+ *  GLOBAL
+ * ----------------------------------------------------------------------------
+ */ @charset "UTF-8";
+html, body, div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    line-height: 1;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    color: #ffffff;
+    font-family: "Ubuntu", Tahoma, Verdana, Arial, Helvetica, sans-serif;
+}
+@font-face {
+    font-family: "ubuntu";
+    src: local('ubuntu');
+}
+
+/* ----------------------------------------------------------------------------
+ * GLOBAL > HEADERS
+ * ----------------------------------------------------------------------------
+ */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    line-height: 1;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+/* Linking */
+
+a, a:visited {
+	text-decoration:none;
+	color: #5a860a;
+}
+a:hover {
+	color: #ff6600;
+}
+
+
+/* ----------------------------------------------------------------------------
+ *  GLOBAL > TABLES
+ * ----------------------------------------------------------------------------
+ */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    line-height: 1;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+
+/* ----------------------------------------------------------------------------
+ *  GLOBAL > CLASSES
+ * ----------------------------------------------------------------------------
+ */
+.clear {
+    clear: both;
+}
+
+.left {
+    top: 25px;
+    left: 15px;
+    margin: 5px;
+    width: 120px !important;
+    height: 201px;
+}
+
+.right {
+    right: 15px;
+    bottom: 25px;
+    margin: 5px;
+    width: 120px !important;
+    height: 201px;
+}
+
+/* ----------------------------------------------------------------------------
+ *  GLOBAL > CLASSES > MAINLINK
+ * ----------------------------------------------------------------------------
+ */
+.mainlink {
+    font-family: Ubuntu; /* no .ttf */
+    text-decoration: none;
+    padding-top: 3px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    display: block;
+}
+
+a.mainlink:link, a.mainlink:visited, a.mainlink:active {
+    color: #333;
+}
+
+a.mainlink:hover {
+    color: #900;
+}
+
+
+
+/* ----------------------------------------------------------------------------
+ *  CONTENT
+ * ----------------------------------------------------------------------------
+ */
+#content {
+    margin-bottom: 20px;
+    colour: black;
+    height: auto;
+    width: 960px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content #rightcolumn {
+    position: relative;
+    display: block;
+    margin: 15px 0 15px 15px;
+    padding: 15px 0 15px 15px;
+    width: 180px;
+    height: 495px;
+    float: left;
+    background-image: url(images/webdesign/style/rightcolumn.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ----------------------------------------------------------------------------
+ *  CONTENT > MAINCONTENT
+ * ----------------------------------------------------------------------------
+ */
+#content #maincontent {
+    width: 900px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    color: #000000;
+    height: auto;
+    line-height: 120%;
+    
+}
+
+#content #maincontent h1 {
+    font-family: Ubuntu; /* no .ttf */
+    font-size: 36px;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    color: #ff6600;
+}
+
+#content #maincontent h2 {
+    font-family: Ubuntu; /* no .ttf */
+    font-size: 24px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    color: #ff6600;
+}
+
+#content #maincontent h3 {
+    font-family: Ubuntu; /* no .ttf */
+    font-size: medium;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    color: rgb(60, 35, 15);
+}
+
+#content #maincontent h5 {
+    font-family: Ubuntu; /* no .ttf */
+    font-size: small;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+/* e17 guide purposes */
+#content #maincontent h6, li {
+    font-family: Ubuntu; /* no .ttf */
+    font-size: 16px;
+    margin-bottom:0px;
+    padding-top: 5px;
+    color: #ff6600;
+}
+#content #maincontent h7 {
+    font-family: Ubuntu; /* no .ttf */
+    margin-bottom:0px;
+    padding-top: 5px;
+    color: #ff6600;
+}
+
+img {
+	padding-right: 3px;
+}
+.im {
+	padding-right: 0px;
+	padding: 15px;
+}
+
+.floatl{
+	float: left;
+	padding-right: 0px;
+	padding: 15px;
+}
+
+.floatr {
+	float: right;
+	padding-right: 0px;
+	padding: 15px;
+}
+
+.e {
+	height: 250px;
+}
+.f {
+	height: 150px;
+}
+
+.clr {
+	padding-top: 50px;
+}

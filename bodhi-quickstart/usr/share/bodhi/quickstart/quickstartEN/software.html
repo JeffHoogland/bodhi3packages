@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+ <meta charset="utf-8" />
+
+  <title>Bodhi QuickStart - Installing Software</title>
+
+	<script src="../QuickStart_files/modernizr.js"></script><!--[if lt IE 9]><script src="../QuickStart_files/html5shiv/dist/html5shiv.js"></script><![endif]-->
+
+  <link href="../QuickStart_files/qs.css" rel="stylesheet" type="text/css" media="screen" /><!--[if IE]><link href="../QuickStart_files/ie.css" rel="stylesheet" type="text/css" media="screen" /><![endif]-->  
+  <link rel="shortcut icon" href="http://bodhilinux.com/favicon.ico.png" />
+
+</head>
+<body>
+
+<header class="gradient">
+		<a class="img"  href="http://www.bodhilinux.com/" target="_blank"><img class="navbodhi" src="../images/bodhileaf.png" alt="(Bodhi Linux Logo)" /></a>
+		<a class="img"  href="http://www.enlightenment.org" target="_blank"><img class="nave17" src="../images/elogo.png" alt="(e17 Logo)" /></a>
+		<nav>
+			<ul id="nav" class="navonlowwidth">
+				<li class="qsindex"><a class="mobile" target="_parent"  href="index.html">QuickStart Index</a><a class="nav" target="_parent"  href="index.html">QuickStart Index</a>
+					
+				</li>
+				<li><a class="mobile" target="_parent"  href="enlightenment.html">Enlightenment</a><a class="nav" target="_parent"  href="#">Getting Started</a>
+					<ul>
+						<li><a class="dropdown" target="_parent"  href="internet.html">Connecting to the Internet</a></li>
+						<li><a class="dropdown" target="_parent"  href="software.html">Installing Software</a></li>					
+					</ul>
+				</li>
+				<li><a class="mobile" target="_parent"  href="getting_started.html">Getting Started</a><a class="nav" target="_parent"  href="#">Enlightenment</a>
+					<ul>
+						<li><a class="dropdown" target="_parent"  href="e17.html">E17 Basics</a></li>
+						<li><a class="dropdown" target="_parent"  href="everything.html">Run Everything</a></li>
+						<li><a class="dropdown" target="_parent"  href="../../e17guide/e17guideEN/index.html">Bodhi Guide to Enlightenment</a></li>
+					</ul>
+				</li>
+				<li><a class="mobile" target="_parent"  href="appendix.html">Colophon</a><a class="nav" target="_parent"  href="#">Even More Info</a>
+					<ul>
+						<li><a class="dropdown" target="_parent"  href="quickfaq.html">Quick FAQ</a></li>
+						<li><a class="dropdown" target="_parent"  href="software_requests.html">Common Software Requests</a></li>
+						<li><a class="dropdown" target="_parent"  href="resources.html">Resources</a></li>
+					</ul>
+				</li>
+				<li><a class="mobile" target="_parent"  href="moreinfo.html">Even More Info</a><a class="nav" target="_parent"  href="appendix.html">Colophon</a>
+
+				</li>
+			</ul>
+		</nav>
+</header>
+
+
+
+<div class="body">
+
+
+<!-- Header -->
+<div class="header">
+
+	<a class="img" href="index.html"><img src="../images/bodhilinux.png" alt="(Bodhi Linux Logo)" class="bodhiheader floatr imageonlowwidth" /></a>
+
+	<div class="h1"><h1>Installing Software</h1></div>
+
+	<br />
+
+	<hr />
+
+</div>
+<!-- End of Header -->
+
+<!-- Body -->
+<div class="content">
+	
+<p class="underheader">
+[click on any image to enlarge]
+</p>
+
+<div class="contentcontainer ninetywidth center">
+<p>In most cases, you will want to have an Internet connection
+established to install software in <strong>Bodhi Linux</strong>.<br /><br />
+Please follow this link if you need assistance
+<a class="normal" href="internet.html">Connecting to the
+Internet</a>.</p>
+</div>
+
+<div class="contentcontainer">
+<div class="orange ninetywidth center">
+<h2>Updating System</h2>
+<p>The first thing to do after establishing an internet connection is to update your system.<br /><br /> There are multiple methods to achieve this, but
+the simplest method can be done by opening the LXTerminal application, located in <span class="smalltext">Main Menu>Applications>Accessories</span>, 
+and running this command:<br /><br />
+<span class="greentext boldtext largelh"><code>sudo apt-get update && sudo apt-get -y dist-upgrade</code></span><br /><br />
+<span class="smallertext"><code>
+Note:</code>&nbsp;This command relies on the <a class="normal" href="#apt-get">apt-get</a> command-line tool and can be done any time you want to update your system(apps & all) to the newest versions possible.</span></p>
+</div>
+</div>
+
+
+
+<div class="contentcontainer">
+<div class="green ninetywidth center">
+<h2>Bodhi Linux AppCenter</h2>
+<a class="img normalpicture" href="../images/appcenter.png">
+	<img src="../images/appcenter.png" alt="(Bodhi Appcenter Website)" class="fiftywidth center changeonlowwidth" />
+</a>
+<p class="clear">The <strong>Bodhi Linux</strong> team has created the <strong>AppCenter</strong>
+as a very fast and simple way to install many common applications.
+While you won't find every application that you <em>can</em> install
+in <strong>Bodhi Linux</strong> at the <strong>AppCenter,</strong>
+you <em>will</em> find what we consider to be "best of breed"
+applications for each particular category. </p>
+<p>The <strong>Bodhi Linux AppCenter</strong> is designed to work best with 
+<strong>Midori</strong>, Bodhi's default web browser. It 
+also provides several application-sets( a.k.a. meta-packages) 
+that provide common applications and/or are chosen to
+meet a particular use case. Read about each to find out what they have
+to offer! </p>
+<p>Here's a quick tutorial on how to install applications at the <strong>Bodhi
+Linux AppCenter</strong>: </p>
+
+<ul>
+	<li>
+    <h4>Find your application.</h4>
+  <p class="blacktext">If you already know the name of the application you wish to
+install, just type it in the search bar in the top right.<br />
+If not, simply browse through the categories listed on the front
+page. </p>
+	</li>
+
+	<li>
+    <h4>Navigate to the page.</h4>
+  <p class="blacktext">For either method you choose to find your application you will be
+presented with a link.<br />
+Each application has its own page with a description of the
+application and a screenshot of it. </p>
+	</li>
+
+	<li>
+    <h4>Install it!</h4>
+  <p class="blacktext">
+There are 3 methods of installing to choose from:</p>
+
+	<ul>
+		<li class="smalltext">Install Now
+    <p class="blacktext">This is the most commonly used method
+to install an application from the <strong>Bodhi Linux AppCenter</strong>. Simply click the "<em>Install
+Now</em>" button and enter your password when you are prompted for it. That's it! Your application
+and all of its dependencies will be automatically installed. </p>
+		</li>
+
+		<li class="smalltext">Download
+    <p class="blacktext">This method allows you to downloand an application and all of
+its dependencies in one neat package. Many users find this useful to
+download the package from a machine with a fast Internet connection to
+install on another machine that has no (or slow) Internet connection.
+		<br /><br />
+Complete directions for this method are not covered here, but can 
+be found at the <strong>Bodhi Linux AppCenter.</strong></p>
+		</li>
+
+		<li class="smalltext">Quick Install
+   <p class="blacktext">This method functions faster than the
+prior two,
+but it is
+not recommended unless at least one package has already been installed
+with the "Install Now" method, since the "Install Now" method also
+resynchronizes the package index files from their sources. To
+paraphrase, "Install Now" updates (not upgrades) <em>all</em> packages to their newest versions
+<span class="boldtext italictext">and</span>
+installs the selected package. Quick Install only does the latter.</p>
+		</li>
+	</ul>
+    </li>
+</ul>
+
+
+		<br /><br />
+<p>
+Links (require an internet connection)
+		<br />
+<a class="normal" href="http://appcenter.bodhilinux.com/">
+The Bodhi Linux AppCenter
+</a>
+		<br />
+<a class="normal" href="http://appcenter.bodhilinux.com/pages/install_instructions">
+Complete Installation Instructions at the AppCenter
+</a>
+</p>
+</div>
+</div>
+
+
+
+<div class="contentcontainer">
+<div class="orange ninetywidth center">
+<h2>Synaptic Package Manager</h2>
+
+<p>The 
+<strong>Synaptic Package Manager</strong>, common to all
+<strong>Debian GNU/Linux</strong> 
+based distributions, is installed in 
+<strong>Bodhi Linux</strong> 
+by default. To access it, go to 
+<em><small>Main Menu>Applications>Preferences>Synaptic Package Manager</small></em>.
+</p>
+<p>With 
+<strong>Synaptic Package Manager</strong>, 
+you have access to all of the applications in the 
+<strong>Bodhi Linux</strong> 
+<em>and</em>
+<strong>Ubuntu 12.04</strong> 
+repositories. (A repository is the server(s) where Linux distributions make 
+applications available for you to install.)</p>
+<p>Please see the <strong>Bodhi Linux Doc Wiki</strong> for
+complete
+instructions on using <strong>Synaptic Package Manager</strong>.</p>
+<p>Links (internet connection required):<br />
+<a class="normal" href="http://wiki.bodhilinux.com/doku.php">The Bodhi Linux Doc Wiki</a><br />
+<a class="normal" href="http://wiki.bodhilinux.com/doku.php?id=synaptic_package_manager">Synaptic
+on the Doc Wiki</a></p>
+</div>
+</div>
+
+
+
+<div class="contentcontainer">
+<div class="green ninetywidth center">
+<h2 id="apt-get">apt-get &amp; dpkg (advanced)</h2>
+<p>The command-line tools <code>apt-get</code> and <code>dpkg</code>
+are the "backend" to the above mentioned methods of installing
+applications. Advanced users may feel free to use these tools from the
+command line, but their use is beyond the scope of this document.
+</p>
+
+In a terminal,
+<!--
+<span class="boldtext">Terminology</span>(or any
+other
+terminal), 
+-->
+please run:
+<br />
+
+<small class="boldtext greentext">
+<code>man apt-get</code>
+		<br />
+or 
+		<br />
+<code>man dpkg</code>
+</small>
+			
+<br />
+for the manual of the respective command.<br />
+<p>Installation from source code is readily available for
+advanced users, as well.</p>
+<div id="lp">&nbsp;</div>
+</div>
+</div>
+
+
+
+<div class="contentcontainer">
+<div class="orange ninetywidth center">
+<h2>Ex. Installing Language Packs</h2>
+
+<p class="smalltext">
+<code>Note:</code> These examples only cover <em>installing</em>
+the language packs. To change the system language to the language pack you've just installed, go 
+<a class="normal" href="quickfaq.html#cl" >here</a>.</p>
+
+<p>To install a language pack using the <b>Bodhi Linux AppCenter</b>,
+simply go to <small><em>Main Menu>Bodhi Linux>Adding Software</em></small>.
+This will open your default web-browser 
+<small>(<b>Midori</b> on a fresh Bodhi installation)</small>
+to the <b>Appcenter</b>'s webpage. Now, scroll down to the <em>Extra</em>
+section. There, you will see 
+<a class="normal" href="http://appcenter.bodhilinux.com/software/showL2/Language_Packs"><u>Language Packs</u></a>. 
+Click to view the available language packs Bodhi 
+currently maintains. After you click the one you want, simply use 
+one of the three methods described above to install it, whether it 
+be <em>Install Now</em>, <em>Download</em>, or <em>Quick Install</em>.
+</p><br /><hr /><br />
+<p>
+To install a language pack using the 
+<strong>Synaptic Package Manager</strong>, go to 
+<small><em>Main Menu>Applications>Preferences>Synaptic Package Manager</em></small>.
+It will prompt you for your password. Type it in, and press enter.
+When it opens, click the <em>Reload</em> button in its toolbar. 
+This will update all packages to their latest version so that the packages 
+you install will be at their newest. Once it is done, search for "bodhi language" 
+using the search bar at the top. This will show the available bodhi-language packages.
+Right-click the one you would like, and select 
+<em>Mark for Installation</em>. Go ahead and click the <em>Apply</em>
+button in the toolbar. A popup will show you what will be installed, how much 
+space it will occupy, and it will ask you to click <em>Apply</em>
+to confirm installing the selected language pack. Once that is 
+clicked, it will begin installing the package and notify you once it is complete.
+</p><br /><hr /><br />
+<p>
+To install a language pack using the <strong>apt-get</strong> command, 
+you will need to know the exact name of the package you wish to install.
+If you know its name, good for you, but we will still be demonstrating 
+how to find out its name, regardless:
+</p>
+<p>
+<h3>To find a package's name:</h3>
+<ol>
+<li>
+Open LXTerminal, Bodhi Linux's default terminal, at 
+<small><em>Main Menu>Applications>Accessories</em></small>.
+<br /><br /></li>
+<li>
+Use the command: <code>apt-cache search "[keywords]"</code>.<br /><br />In this case,
+the keywords would be "bodhi language".<br /><br />It should look like this: 
+<code>apt-cache search "bodhi language"</code>.
+<br /><br /></li>
+<li>
+The language packs will be visible, names and all. Do not close the terminal just yet.
+<br /><br /></li>
+</ol>
+<h3>To install the package:</h3>
+<ol>
+<li>
+In the open LXTerminal window, use the command: <code>sudo apt-get install -y [package-name]</code>.<br /><br />For this example,
+the package name will be bodhi-language-fr (french language pack).<br /><br />It should look like this: 
+<code>sudo apt-get update && sudo apt-get install -y bodhi-language-fr</code>.
+<br /><br /></li>
+<li>
+After pressing enter, a flood of text describing what the command is doing will come raining down. You will have to wait a tad.
+<br /><br /></li>
+<li>
+When you are back to the user@computer prompt, the installation is complete.
+<br /><br /></li>
+</ol>
+</p>
+</div>
+</div>
+
+
+
+</div>
+<!-- End of Body -->
+
+
+<!-- Nav Table -->
+<div class="navbottomcontainer"><br />
+<hr />
+
+	<div class="navbottomtop">
+		<div class="bottom lefttext">Prev:</div>
+		<div class="bottom centertext"> Contents:</div>
+		<div class="bottom righttext">Next:</div>
+    </div>
+    <div class="navbottombottom">
+		<div class="bottom lefttext"><a target="_parent" href="internet.html">Connection to the Internet</a></div>
+		<div class="bottom centertext"><a target="_parent" href="index.html">Index</a></div>
+		<div class="bottom righttext"><a target="_parent" href="e17.html">E17 Basics</a></div>
+    </div>
+
+<br /><br />
+</div>
+<!-- End of Nav Table -->
+
+</div>
+
+</body>
+</html>
