@@ -1,8 +1,8 @@
 Package: bodhi-profile-e19
-Version: 0.8
+Version: 0.10
 Section: main
 Priority: optional
-Depends: e19
+Depends: e19, radiance-theme-e19, light-themes
 Architecture: all
 Maintainer: Jeff Hoogland
 Description: Bodhi Profile
