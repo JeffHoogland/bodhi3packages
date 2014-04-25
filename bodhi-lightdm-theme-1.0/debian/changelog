@@ -1,4 +1,4 @@
-bodhi-lightdm-theme (1.03) precise; urgency=low
+bodhi-lightdm-theme (1.04) precise; urgency=low
 
   * Fix a autologin issue for the live disc (LP: #940255)
 
