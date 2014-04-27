@@ -1,8 +1,8 @@
 Package: bodhi-desktop
-Version: 0.15
+Version: 0.17
 Section: main
 Priority: optional
-Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, elaptopcheck, esudo, bodhi-skel, e19 | enlightenment, bodhi-profile-e19 | bodhi-profile-e17, eepdater, epad, matrilneare-icon-theme, bodhi-plymouth-theme, evas-generic-loaders, bc, bash-completion, lupin-casper, epulse-e19, policykit-desktop-privileges, terminology, packagekit, lxmenu-data, xdg-utils
+Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, elaptopcheck, esudo, bodhi-skel, e19 | enlightenment, bodhi-profile-e19 | bodhi-profile-e17, eepdater, epad, matrilneare-icon-theme, bodhi-plymouth-theme, evas-generic-loaders, bc, bash-completion, lupin-casper, epulse-e19, policykit-desktop-privileges, terminology, packagekit, lxmenu-data, xdg-utils, bodhi-quickstart, python-dbus
 Architecture: all
 Maintainer: Jeff Hoogland
 Description: Bodhi Desktop
