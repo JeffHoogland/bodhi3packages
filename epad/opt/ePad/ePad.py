@@ -5,7 +5,9 @@
 
 import sys
 import os
+import time
 from efl.evas import EVAS_HINT_EXPAND, EVAS_HINT_FILL
+from efl.elementary.object import EVAS_CALLBACK_KEY_UP, EVAS_CALLBACK_KEY_DOWN
 from efl import elementary
 from efl.elementary.window import StandardWindow
 from efl.elementary.box import Box
@@ -24,12 +26,7 @@ from efl.elementary.flip import Flip, ELM_FLIP_ROTATE_X_CENTER_AXIS, \
     ELM_FLIP_DIRECTION_LEFT, ELM_FLIP_DIRECTION_RIGHT, \
     ELM_FLIP_INTERACTION_NONE, ELM_FLIP_INTERACTION_ROTATE, \
     ELM_FLIP_INTERACTION_CUBE, ELM_FLIP_INTERACTION_PAGE
-from efl.elementary.fileselector import Fileselector, \
-    ELM_FILESELECTOR_SORT_LAST, ELM_FILESELECTOR_LIST, ELM_FILESELECTOR_GRID, \
-    ELM_FILESELECTOR_SORT_BY_FILENAME_ASC, ELM_FILESELECTOR_SORT_BY_FILENAME_DESC, \
-    ELM_FILESELECTOR_SORT_BY_TYPE_ASC, ELM_FILESELECTOR_SORT_BY_TYPE_DESC, \
-    ELM_FILESELECTOR_SORT_BY_SIZE_ASC, ELM_FILESELECTOR_SORT_BY_SIZE_DESC, \
-    ELM_FILESELECTOR_SORT_BY_MODIFIED_ASC, ELM_FILESELECTOR_SORT_BY_MODIFIED_DESC
+from efl.elementary.fileselector import Fileselector
 from efl.elementary.transit import Transit, ELM_TRANSIT_EFFECT_WIPE_TYPE_HIDE, \
     ELM_TRANSIT_EFFECT_WIPE_DIR_RIGHT, ELM_TRANSIT_EFFECT_FLIP_AXIS_X, \
     ELM_TRANSIT_EFFECT_FLIP_AXIS_Y, ELM_TRANSIT_TWEEN_MODE_ACCELERATE, \
@@ -65,6 +62,7 @@ class Interface(object):
         self.mainEn.line_wrap_set(False) # does not allow line wrap (can be changed by user)
         self.mainEn.autosave_set(False) # set to false to reduce disk I/O
         self.mainEn.elm_event_callback_add(self.eventsCb)
+        self.mainEn.markup_filter_append(self.textFilter)
         self.mainEn.show()
         
         self.mainTb.show()
@@ -101,6 +99,7 @@ class Interface(object):
 
         self.isSaved = True
         self.isNewFile = False
+        self.confirmPopup = None
 
     def newPress( self, obj, it ):
         self.newFile()
@@ -164,26 +163,76 @@ class Interface(object):
     def aboutClose( self, bt ):
         self.popupAbout.delete()
 
-    def newFile( self ):
-        trans = Transit()
-        trans.object_add(self.mainEn)
-        trans.auto_reverse = True
+    def newFile( self , obj=None, ignoreSave=False ):
+        if self.isSaved == True or ignoreSave == True:
+            trans = Transit()
+            trans.object_add(self.mainEn)
+            trans.auto_reverse = True
 
-        trans.effect_wipe_add(
-            ELM_TRANSIT_EFFECT_WIPE_TYPE_HIDE,
-            ELM_TRANSIT_EFFECT_WIPE_DIR_RIGHT)
+            trans.effect_wipe_add(
+                ELM_TRANSIT_EFFECT_WIPE_TYPE_HIDE,
+                ELM_TRANSIT_EFFECT_WIPE_DIR_RIGHT)
 
-        trans.duration = 0.5
-        trans.go()
+            trans.duration = 0.5
+            trans.go()
+            
+            time.sleep(0.5)
 
-        self.mainWindow.title_set("Untitlted - ePad")
-        self.mainEn.entry_set("")
-        self.isNewFile = True
+            self.mainWindow.title_set("Untitlted - ePad")
+            self.mainEn.delete()
+            self.mainEn = Entry(self.mainWindow, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
+            self.mainEn.callback_changed_user_add(self.textEdited)
+            self.mainEn.scrollable_set(True) # creates scrollbars rather than enlarge window
+            self.mainEn.line_wrap_set(False) # does not allow line wrap (can be changed by user)
+            self.mainEn.autosave_set(False) # set to false to reduce disk I/O
+            self.mainEn.elm_event_callback_add(self.eventsCb)
+            self.mainEn.show()
+            
+            self.mainBox.pack_end(self.mainEn)
 
-    def openFile( self ):
-        self.fileSelector.is_save_set(False)
-        self.fileLabel.text = "<b>Select a text file to open:</b>"
-        self.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
+            self.isNewFile = True
+        elif self.confirmPopup == None:
+            self.confirmSave(self.newFile)
+
+    def openFile( self, obj=None, ignoreSave=False ):
+        if self.isSaved == True or ignoreSave == True:
+            self.fileSelector.is_save_set(False)
+            self.fileLabel.text = "<b>Select a text file to open:</b>"
+            self.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
+        elif self.confirmPopup == None:
+            self.confirmSave(self.openFile)
+
+    def confirmSave( self, ourCallback=None ):
+        self.confirmPopup = Popup(self.mainWindow, size_hint_weight=EXPAND_BOTH)
+        self.confirmPopup.part_text_set("title,text","File Unsaved")
+        if self.mainEn.file_get()[0]:
+            self.confirmPopup.text = "Save changes to '%s'?" % self.mainEn.file_get()[0].split("/")[len(self.mainEn.file_get()[0].split("/"))-1]
+        else:
+            self.confirmPopup.text = "Save changes to 'Untitlted'?"
+        # Close without saving button
+        no_btt = Button(self.mainWindow)
+        no_btt.text = "No"
+        no_btt.callback_clicked_add(self.closePopup, self.confirmPopup)
+        if ourCallback is not None:
+            no_btt.callback_clicked_add(ourCallback, True)
+        no_btt.show()
+        # cancel close request
+        cancel_btt = Button(self.mainWindow)
+        cancel_btt.text = "Cancel"
+        cancel_btt.callback_clicked_add(self.closePopup, self.confirmPopup)
+        cancel_btt.show()
+        # Save the file and then close button
+        sav_btt = Button(self.mainWindow)
+        sav_btt.text = "Yes"
+        sav_btt.callback_clicked_add(self.saveFile)
+        sav_btt.callback_clicked_add(self.closePopup, self.confirmPopup)
+        sav_btt.show()
+        
+        # add buttons to popup
+        self.confirmPopup.part_content_set("button1", no_btt)
+        self.confirmPopup.part_content_set("button2", cancel_btt)
+        self.confirmPopup.part_content_set("button3", sav_btt)
+        self.confirmPopup.show()
 
     def saveAs( self ):
         self.fileSelector.is_save_set(True)
@@ -200,59 +249,42 @@ class Interface(object):
 
     def closeChecks( self, obj ):
         print self.isSaved
-        if self.isSaved == False:
-            self.closePopup = Popup(self.mainWindow, size_hint_weight=EXPAND_BOTH)
-            self.closePopup.part_text_set("title,text","File Unsaved")
-            if self.mainEn.file_get()[0]:
-                self.closePopup.text = "Save changes to '%s'?" % self.mainEn.file_get()[0].split("/")[len(self.mainEn.file_get()[0].split("/"))-1]
-            else:
-                self.closePopup.text = "Save changes to 'Untitlted'?"
-            # Close without saving button
-            no_btt = Button(self.mainWindow)
-            no_btt.text = "No"
-            no_btt.callback_clicked_add(self.closeApp)
-            no_btt.show()
-            # cancel close request
-            cancel_btt = Button(self.mainWindow)
-            cancel_btt.text = "Cancel"
-            cancel_btt.callback_clicked_add(self.closeClose)
-            cancel_btt.show()
-            # Save the file and then close button
-            sav_btt = Button(self.mainWindow)
-            sav_btt.text = "Yes"
-            sav_btt.callback_clicked_add(self.saveFile)
-            sav_btt.callback_clicked_add(self.closeClose)
-            sav_btt.show()
-            
-            # add buttons to popup
-            self.closePopup.part_content_set("button1", no_btt)
-            self.closePopup.part_content_set("button2", cancel_btt)
-            self.closePopup.part_content_set("button3", sav_btt)
-            self.closePopup.show()
+        if self.isSaved == False and self.confirmPopup == None:
+            self.confirmSave(self.closeApp)
         else:
             self.closeApp()
 
-    def closeClose( self, bt=False ):
-        self.closePopup.delete()
+    def closePopup( self, bt, confirmPopup ):
+        self.confirmPopup.delete()
+        self.confirmPopup = None
 
-    def closeApp( self, obj=False ):
+    def closeApp( self, obj=False, trash=False ):
         elementary.exit()
 
     def eventsCb( self, obj, src, event_type, event ):
-        print event_type
-        print event.key
-        print "Control Key Status: %s" %event.modifier_is_set("Control")
-        print "Shift Key Status: %s" %event.modifier_is_set("Shift")
+        #print event_type
+        #print event.key
+        #print "Control Key Status: %s" %event.modifier_is_set("Control")
+        #print "Shift Key Status: %s" %event.modifier_is_set("Shift")
         #print event.modifier_is_set("Alt")
-        if event_type == 11 and event.modifier_is_set("Control"):
-            if event.key == "n":
+        if event.modifier_is_set("Control"):
+            if event.key.lower() == "n":
                 self.newFile()
-            elif event.key == "s" and event.modifier_is_set("Shift"):
+            elif event.key.lower() == "s" and event.modifier_is_set("Shift"):
                 self.saveAs()
-            elif event.key == "s":
+            elif event.key.lower() == "s":
                 self.saveFile()
-            elif event.key == "o":
+            elif event.key.lower() == "o":
                 self.openFile()
+
+    def textFilter( self, obj, theText, data ):
+        #print theText
+
+        #Block ctrl+hot keys
+        if theText == "" or theText == "" or theText == "":
+            return None
+        else:
+            return theText
 
     def launch( self, startingFile=False ):
         if startingFile:
@@ -264,7 +296,12 @@ if __name__ == "__main__":
 
     GUI = Interface()
     if len(sys.argv) > 1:
-        GUI.launch(sys.argv[1])
+        ourFile = str(sys.argv[1])
+        if ourFile[0:7] == "file://":
+            print ourFile
+            ourFile = ourFile[7:len(ourFile)]
+        print ourFile
+        GUI.launch(ourFile)
     else:
         GUI.launch()
 
