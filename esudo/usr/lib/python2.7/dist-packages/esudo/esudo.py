@@ -13,7 +13,11 @@ import PAM
 import ecore
 import evas
 import elementary
+import logging
 
+logging.basicConfig()
+log = logging.getLogger("eSudo")
+log.setLevel(logging.WARN)
 
 #----Popups
 def pw_error_popup(en):
@@ -22,7 +26,7 @@ def pw_error_popup(en):
     popup.size_hint_weight = evas.EVAS_HINT_EXPAND, evas.EVAS_HINT_EXPAND
     popup.part_text_set("title,text", "Error")
     popup.text = "Incorrect Password!<br>Please try again."
-    print("eSudo Error: Incorrect Password. Please try again.")
+    log.error("eSudo Error: Incorrect Password. Please try again.")
     popup.timeout = 3.0
     popup.show()
 
@@ -219,8 +223,8 @@ class eSudo(object):
             en.entry = ""
             en.focus = True
             return
-        except:
-            print("Internal error! File bug report.")
+        except Exception:
+            log.exception("Internal error! File bug report.")
         else:
             self.esudo_ok(bt, en)
 
@@ -238,7 +242,7 @@ class eSudo(object):
         cmd = self.cmdline.entry
         cmdprts = cmd.split(" ")
         cmdnum = len(cmdprts)
-        print("Starting '%s'..."%cmd)
+        log.info("Starting '%s'..."%cmd)
 
         if cmdnum > 1:
             command = cmdprts[0]
@@ -252,15 +256,20 @@ class eSudo(object):
         try:
             arguments = self.kwargs["cmdargs"]
             cmd = "%s %s"%(cmd, arguments)
-        except:
+        except Exception:
             pass
 
-        if not os.path.exists("/tmp/libesudo"):
-            os.makedirs("/tmp/libesudo")
-        command  = "cp /home/%s/.Xauthority /tmp/libesudo"%getpass.getuser()
-        ecore.Exe(command, ecore.ECORE_EXE_PIPE_READ|ecore.ECORE_EXE_PIPE_ERROR|ecore.ECORE_EXE_PIPE_WRITE)
+        #Old method. Using -E is cleaner
+        #if not os.path.exists("/tmp/libesudo"):
+        #    os.makedirs("/tmp/libesudo")
+        #command  = "cp /home/%s/.Xauthority /tmp/libesudo"%getpass.getuser()
+        #ecore.Exe(command, ecore.ECORE_EXE_PIPE_READ|ecore.ECORE_EXE_PIPE_ERROR|ecore.ECORE_EXE_PIPE_WRITE)
 
-        self.run_command("HOME='/tmp/libesudo' ; sudo -S %s" % (cmd), password)
+        #command  = "cp -a /home/%s/.elementary /tmp/libesudo"%getpass.getuser()
+        #ecore.Exe(command, ecore.ECORE_EXE_PIPE_READ|ecore.ECORE_EXE_PIPE_ERROR|ecore.ECORE_EXE_PIPE_WRITE)
+
+        #self.run_command("HOME='/tmp/libesudo' ; sudo -S %s" % (cmd), password)
+        self.run_command("sudo -ES %s" % (cmd), password)
 
 #--------Run Command
     def run_command(self, command, password):
@@ -271,33 +280,33 @@ class eSudo(object):
         cmd.on_del_event_add(self.command_done)
 
     def command_started(self, cmd, event, *args, **kwargs):
-        print("Command started.\n")
+        log.info("Command started.\n")
         if self.start_cb:
             try:
                 self.start_cb(self.win, *self.args, **self.kwargs)
-            except:
-                print("Exception while running start_cb")
+            except Exception:
+                log.exception()
         self.iw.hide() if self.embedded else self.win.hide()
 
     def received_data(self, cmd, event, *args, **kwargs):
         if not "\n" == event.data:
-            print(event.data)
+            log.debug(event.data)
 
     def received_error(self, cmd, event, *args, **kwargs):
         if not "sudo" in event.data or not "password for" in event.data:
-            print("Error: %s"%event.data)
+            log.debug("Error: %s"%event.data)
         else:
             password = args[0]
             cmd.send(str(password)+"\n")
 
     def command_done(self, cmd, event, *args, **kwargs):
-        print("Command done.")
+        log.info("Command done.")
 
         if self.end_cb:
             try:
                 self.end_cb(event.exit_code, self.win, *self.args, **self.kwargs)
-            except:
-                print("Exception while running end_cb")
+            except Exception:
+                log.exception()
         self.close()
 
 if __name__ == "__main__":
