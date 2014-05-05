@@ -10,3 +10,4 @@ MimeType=text/plain
 Categories=EFL;Utility;TextEditor;
 Actions=Window;Document;
 Keywords=Text;Editor;Plaintext;Write;
+StartupWMClass=epad

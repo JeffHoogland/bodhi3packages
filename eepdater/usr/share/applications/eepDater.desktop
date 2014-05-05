@@ -9,3 +9,4 @@ StartupNotify=true
 Comment=An elementary frontend for system updates written in py-efls.
 Terminal=false
 Name=eepDater
+StartupWMClass=eepdater
