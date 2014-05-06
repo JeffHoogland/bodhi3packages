@@ -1,5 +1,5 @@
 Package: bodhi-slideshow
-Version: 0.61
+Version: 0.62
 Section: main
 Priority: optional
 Architecture: all
