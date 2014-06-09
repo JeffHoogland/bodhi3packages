@@ -1,0 +1,9 @@
+Package: bodhi-connman-config
+Version: 0.2
+Section: main
+Priority: optional
+Architecture: all
+Installed-Size:
+Maintainer: Jeff Hoogland
+Description: Bodhi Linux Connman Configurations
+ Connman configurations for Bodhi Linux
