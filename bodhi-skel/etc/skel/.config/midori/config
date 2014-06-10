@@ -5,7 +5,7 @@ last-window-width=800
 last-window-height=536
 last-web-search=2
 toolbar-style=MIDORI_TOOLBAR_ICONS
-homepage=/usr/share/bodhi/quickstart/quickstartEN/index.html
+homepage=file:///usr/share/bodhi/quickstart/quickstartEN/index.html
 speed-dial-in-new-tabs=false
 text-editor=leafpad %f
 location-entry-search=http://www.google.com/search?q=%s

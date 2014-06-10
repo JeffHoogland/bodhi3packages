@@ -1,5 +1,5 @@
 Package: bodhi-skel
-Version: 0.80
+Version: 0.81
 Section: main
 Priority: optional
 Architecture: all
