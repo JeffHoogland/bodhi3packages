@@ -298,6 +298,9 @@ class MainWin(StandardWindow):
     def innerWinHide(self, obj=False):
         self.innerWin.hide()
 
+    def installDone(self, obj=False):
+        pass
+
     def buildLoadBox(self):
         # build the load label
         loadLable = Label(self, size_hint_weight=EXPAND_BOTH,
@@ -396,7 +399,7 @@ class MainWin(StandardWindow):
             self.installButton.callback_pressed_del(self.installPressed)
             self.installButton.callback_pressed_add(self.innerWinShow)
         else:
-            self.label.text = "The package <b>%s</b> is already installed." %already
+            self.label.text = "<b>Package is already installed.</b>"
             self.installButton.delete()
         
         self.cancelButton.text = "Close"
@@ -435,7 +438,7 @@ class apturl(object):
         if not self.packageObj.is_installed:
             self.win.setPackageInfo(packageName, self.apt.cache[packageName].versions[0].description)
         else:
-            self.win.installDone(already=packageName)
+            self.win.installDone(already=True)
 
     def updateStatus(self):
         global progressque
@@ -448,6 +451,9 @@ class apturl(object):
             progressque = []
 
         return True
+        
+    def installDone(self, result):
+        pass
 
     def checkChange(self, obj):
         packageName = obj.data['packageName']
@@ -505,6 +511,9 @@ if __name__ == "__main__":
     print args
     
     package = args.split(":")[1]
+    
+    if package.startswith("///"):
+		package = package[3:]
     
     if "?" in package:
         refresh = package.split("?")[1]
