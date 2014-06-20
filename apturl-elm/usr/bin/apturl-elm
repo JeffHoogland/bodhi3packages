@@ -385,7 +385,7 @@ class MainWin(StandardWindow):
         self.app.packageObj.mark_install()
         self.app.installUpdates()
         
-    def installDone(self, already=False, notfound=False):
+    def installDone(self, packageName, already=False, notfound=False):
         self.desFrame.delete()
         
         if not already and not notfound:
@@ -396,10 +396,10 @@ class MainWin(StandardWindow):
             self.installButton.callback_pressed_del(self.installPressed)
             self.installButton.callback_pressed_add(self.innerWinShow)
         elif already:
-            self.label.text = "<b>Package is already installed.</b>"
+            self.label.text = "<b>Package %s is already installed.</b>"%packageName
             self.installButton.delete()
         elif notfound:
-            self.label.text = "<b>Package not found in repository.</b>"
+            self.label.text = "<b>Package %s not found in repository.</b>"%packageName
             self.installButton.delete()
         
         self.cancelButton.text = "Close"
@@ -440,9 +440,9 @@ class apturl(object):
 			if not self.packageObj.is_installed:
 				self.win.setPackageInfo(packageName, packageDes)
 			else:
-				self.win.installDone(already=True)
+				self.win.installDone(packageName, already=True)
         else:
-            self.win.installDone(notfound=True)
+            self.win.installDone(packageName, notfound=True)
 
     def updateStatus(self):
         global progressque
@@ -455,38 +455,6 @@ class apturl(object):
             progressque = []
 
         return True
-        
-    def installDone(self, result):
-        pass
-
-    def checkChange(self, obj):
-        packageName = obj.data['packageName']
-        ourPackage = self.apt.cache[packageName]
-        if obj.state_get() == True:
-            ourPackage.mark_upgrade()
-            self.packagesToUpdate[packageName]['selected'] = True
-        else:
-            self.packagesToUpdate[packageName]['selected'] = False
-
-            changes = self.apt.cache.get_changes()
-            self.apt.cache.clear()
-            for ourPackage in changes:
-                markupgrade = True
-                if self.packagesToUpdate[ourPackage.name]['selected'] == False:
-                    markupgrade = False
-
-                if markupgrade:
-                    ourPackage.mark_upgrade()
-
-        for pak in self.packagesToUpdate:
-            self.packagesToUpdate[pak]['check'].state_set(False)
-            self.packagesToUpdate[pak]['check'].text = ""
-
-        for pak in self.apt.cache.get_changes():
-            if pak.name in self.packagesToUpdate:
-                self.packagesToUpdate[pak.name]['check'].state_set(True)
-                if self.packagesToUpdate[pak.name]['selected'] == False:
-                    self.packagesToUpdate[pak.name]['check'].text = "dep"
 
     def installUpdates(self):
         self.win.statusLabel.text = "<i>Installing package...</i>"
@@ -494,7 +462,7 @@ class apturl(object):
         self.apt.run("installUpdates", self.installDone)
 
     def installDone(self, result):
-        self.win.installDone()
+        self.win.installDone("")
 
     def refreshPackages(self):
         self.win.statusLabel.text = "<i>Refreshing package lists...</i>"
