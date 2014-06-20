@@ -298,9 +298,6 @@ class MainWin(StandardWindow):
     def innerWinHide(self, obj=False):
         self.innerWin.hide()
 
-    def installDone(self, obj=False):
-        pass
-
     def buildLoadBox(self):
         # build the load label
         loadLable = Label(self, size_hint_weight=EXPAND_BOTH,
@@ -388,18 +385,21 @@ class MainWin(StandardWindow):
         self.app.packageObj.mark_install()
         self.app.installUpdates()
         
-    def installDone(self, already=False):
+    def installDone(self, already=False, notfound=False):
         self.desFrame.delete()
         
-        if not already:
+        if not already and not notfound:
             self.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
             self.label.text = "<b>Package successfully installed.</b>"
             
             self.installButton.text = "Info"
             self.installButton.callback_pressed_del(self.installPressed)
             self.installButton.callback_pressed_add(self.innerWinShow)
-        else:
+        elif already:
             self.label.text = "<b>Package is already installed.</b>"
+            self.installButton.delete()
+        elif notfound:
+            self.label.text = "<b>Package not found in repository.</b>"
             self.installButton.delete()
         
         self.cancelButton.text = "Close"
@@ -433,12 +433,16 @@ class apturl(object):
         self.packageVersion = None
         
     def setPackageInfo(self, packageName):
-        self.packageObj = self.apt.cache[packageName]
-        self.packageVersion = self.apt.cache[packageName].versions[0]
-        if not self.packageObj.is_installed:
-            self.win.setPackageInfo(packageName, self.apt.cache[packageName].versions[0].description)
+        if packageName in self.apt.cache:
+			self.packageObj = self.apt.cache[packageName]
+			self.packageVersion = self.apt.cache[packageName].versions[0]
+			packageDes = self.apt.cache[packageName].versions[0].description
+			if not self.packageObj.is_installed:
+				self.win.setPackageInfo(packageName, packageDes)
+			else:
+				self.win.installDone(already=True)
         else:
-            self.win.installDone(already=True)
+            self.win.installDone(notfound=True)
 
     def updateStatus(self):
         global progressque
