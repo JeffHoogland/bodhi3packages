@@ -1,0 +1,13 @@
+#!/bin/sh
+
+FILE="/usr/bin/xdg-open"
+
+if [ -f $FILE ];
+then
+   echo "File $FILE exists, backing it up before we replace it"
+   mv /usr/bin/xdg-open /usr/bin/xdg-open-old
+else
+   echo "File $FILE does not exist."
+fi
+
+ln -s /usr/bin/enlightenment_open /usr/bin/xdg-open

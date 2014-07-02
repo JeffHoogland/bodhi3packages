@@ -1,0 +1,13 @@
+#!/bin/sh
+
+rm /usr/bin/xdg-open
+
+FILE="/usr/bin/xdg-open-old"
+
+if [ -f $FILE ];
+then
+   echo "File $FILE exists, moving it back now that apturl-chrome is removed"
+   mv /usr/bin/xdg-open-old /usr/bin/xdg-open
+else
+   echo "File $FILE does not exist."
+fi

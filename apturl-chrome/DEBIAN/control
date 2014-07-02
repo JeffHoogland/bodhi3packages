@@ -1,0 +1,9 @@
+Package: apturl-chrome
+Version: 0.1
+Section: main
+Priority: optional
+Architecture: all
+Depends: e19 | enlightenment, apturl-elm
+Maintainer: Jeff Hoogland
+Description: apturl support for Chrome
+ A hack that replaces xdg-open with enlightenment_open because it works!
