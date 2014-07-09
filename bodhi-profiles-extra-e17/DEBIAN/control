@@ -1,0 +1,10 @@
+Package: bodhi-profiles-extra-e17
+Version: 0.1
+Section: main
+Priority: optional
+Depends: e17
+Architecture: all
+Maintainer: Jeff Hoogland
+Description: Additional E17 Configurations for E17
+ This package contains the profiles found by default in Bodhi 1.x and 2.x releases
+
