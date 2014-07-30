@@ -1,0 +1,9 @@
+Package: python-efl-backsupport
+Version: 0.1
+Section: main
+Priority: optional
+Architecture: all
+Depends: python-efl
+Maintainer: Jeff Hoogland
+Description: python-efl-backsupport
+ Back support for python-efl 1.7 bindings
