@@ -1,5 +1,5 @@
 Package: bodhi-profile-e17
-Version: 0.1
+Version: 0.01
 Section: main
 Priority: optional
 Depends: enlightenment, bodhi-theme-e17-speedy
