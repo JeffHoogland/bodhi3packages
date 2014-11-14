@@ -7,5 +7,7 @@ Provides: gksu
 Architecture: all
 Depends: python-efl, python-pam
 Maintainer: Jeff Hoogland
+Uploaders: Eric Brown, Doug Yanez
+Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: eSudo (elementary sudo frontend)
  An Elementary GUI for sudo written in py-efls.

@@ -3,7 +3,9 @@ Version: 0.1
 Section: main
 Priority: optional
 Architecture: all
-Depends: e19 | enlightenment, apturl-elm
-Maintainer: Jeff Hoogland
+Depends: enlightenment, apturl-elm
+Maintainer: Eric Brown
+Uploaders: Jeff Hoogland, Doug Yanez
+Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: apturl support for Chrome
  A hack that replaces xdg-open with enlightenment_open because it works!

@@ -1,9 +1,0 @@
-Package: matrilneare-icon-theme
-Version: 1.0
-Section: main
-Priority: optional
-Architecture: all
-Maintainer: Jeff Hoogland
-Description: Matrilneare Icon Theme
- An icon theme for your desktop.
-

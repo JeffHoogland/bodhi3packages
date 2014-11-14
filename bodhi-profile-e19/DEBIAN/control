@@ -3,8 +3,12 @@ Version: 0.13
 Section: main
 Priority: optional
 Depends: e19, radiance-theme-e19, light-themes
+Conflicts: bodhi-profile-e17, e17, bodhi-profile-e18, e18
+Replaces: bodhi-profile-e17, bodhi-profile-e18
 Architecture: all
-Maintainer: Jeff Hoogland
+Maintainer: Eric Brown
+Uploaders: Jeff Hoogland, Doug Yanez
+Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Bodhi Profile
- The default E19 profile for Bodhi Linux
+ The default profile for Bodhi Linux
 

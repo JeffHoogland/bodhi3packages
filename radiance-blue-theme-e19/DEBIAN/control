@@ -3,7 +3,11 @@ Version: 0.6
 Section: main
 Architecture: all
 Priority: optional
+Depends: e19
+Conflicts: e18, e17
 Maintainer: Jeff Hoogland
+Uploaders: Eric Brown, Doug Yanez
+Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Radiance Theme - Blue
  Radiance E19 theme - blue
 

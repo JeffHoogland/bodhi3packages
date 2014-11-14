@@ -3,7 +3,10 @@ Version: 0.01
 Section: main
 Priority: optional
 Architecture: all
-Depends: enlightenment
+Depends: e17
+Conflicts: e19, e18
 Maintainer: Doug Yanez
-Description: Custom e17 theme for Bodhi 3.0
+Uploaders: Jeff Hoogland, Eric Brown
+Vcs-Browser: https://github.com/Feneric/bodhi3packages
+Description: Custom e17 theme for Legacy Bodhi 3.0
  A custom theme for Bodhi Linux 3.0 Legacy and other Bodhi e17 users

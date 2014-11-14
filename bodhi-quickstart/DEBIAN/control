@@ -5,6 +5,8 @@ Priority: optional
 Architecture: all
 Depends: bodhi-e17guide, ttf-ubuntu-font-family
 Installed-Size:
-Maintainer: Jeff Hoogland
+Maintainer: Eric Brown
+Uploaders: Jeff Hoogland, Doug Yanez
+Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Bodhi Quickstart Guide
  Bodhi Quick Start Guide Files
