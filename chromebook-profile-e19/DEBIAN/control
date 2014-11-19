@@ -9,7 +9,7 @@ Provides: bodhi-profile-e19
 Architecture: all
 Maintainer: Jeff Hoogland
 Uploaders: Eric Brown, Doug Yanez
-Vcs-Browser: https://github.com/Feneric/bodhi3packages
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Bodhi Chromebook Profile
  A Chromebook E19 profile for Bodhi Linux
 

@@ -7,6 +7,6 @@ Installed-Size:
 Depends: econnman
 Maintainer: Eric Brown
 Uploaders: Jeff Hoogland, Doug Yanez
-Vcs-Browser: https://github.com/Feneric/bodhi3packages
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Bodhi Linux Connman Configurations
  Connman configurations for Bodhi Linux

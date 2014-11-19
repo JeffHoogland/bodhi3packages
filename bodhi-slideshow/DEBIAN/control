@@ -5,6 +5,6 @@ Priority: optional
 Architecture: all
 Maintainer: Eric Brown
 Uploaders: Jeff Hoogland, Doug Yanez
-Vcs-Browser: https://github.com/Feneric/bodhi3packages
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Bodhi Slideshow
  Contains Bodhi's installer slides.

@@ -6,6 +6,6 @@ Architecture: all
 Depends: python-efl
 Maintainer: Eric Brown
 Uploaders: Jeff Hoogland, Doug Yanez
-Vcs-Browser: https://github.com/Feneric/bodhi3packages
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: python-efl-backsupport
  Back support for python-efl 1.7 bindings

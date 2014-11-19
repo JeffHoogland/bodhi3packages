@@ -6,7 +6,7 @@ Architecture: all
 Depends: pulseaudio
 Maintainer: Jeff Hoogland
 Uploaders: Eric Brown, Doug Yanez
-Vcs-Browser: https://github.com/Feneric/bodhi3packages
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Audio Switching udev rules for C720
  Switches your audio output automatically when an HDMI device is attached to your Acer C720
 

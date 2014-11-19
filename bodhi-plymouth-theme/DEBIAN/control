@@ -7,6 +7,6 @@ Installed-Size:
 Depends: enlightenment
 Maintainer: Jeff Hoogland
 Uploaders: Eric Brown, Doug Yanez
-Vcs-Browser: https://github.com/Feneric/bodhi3packages
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Bodhi Linux Plymouth Theme
  A plymouth theme for Bodhi Linux

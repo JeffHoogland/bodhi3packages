@@ -7,7 +7,7 @@ Conflicts: bodhi-desktop, bodhi-profile-e19, e19, bodhi-profile-e18, e18
 Architecture: all
 Maintainer: Doug Yanez
 Uploaders: Jeff Hoogland, Eric Brown
-Vcs-Browser: https://github.com/Deepspeed/bodhi3packages
+#Vcs-Browser: https://github.com/Deepspeed/bodhi3packages
 Description: Legacy Bodhi Desktop for E17
  A meta package that pulls in Bodhi related packages for E17
 

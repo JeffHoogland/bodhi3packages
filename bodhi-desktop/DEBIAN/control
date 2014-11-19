@@ -8,7 +8,7 @@ Replaces: bodhi-desktop-e17, bodhi-desktop-e18
 Architecture: all
 Maintainer: Eric Brown
 Uploaders: Jeff Hoogland, Doug Yanez
-Vcs-Browser: https://github.com/Feneric/bodhi3packages
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Bodhi Desktop
  A meta package that pulls in Bodhi related packages
 

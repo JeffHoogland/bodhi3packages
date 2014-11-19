@@ -5,7 +5,7 @@ Priority: optional
 Architecture: all
 Maintainer: Jeff Hoogland
 Uploaders: Eric Brown, Doug Yanez
-Vcs-Browser: https://github.com/Feneric/bodhi3packages
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Matrilneare Icon Theme
  An icon theme for your desktop.
 
