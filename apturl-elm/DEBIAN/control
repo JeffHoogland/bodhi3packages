@@ -6,6 +6,8 @@ Replaces: apturl, apturl-common
 Provides: apturl, apturl-common
 Architecture: all
 Depends: python-efl, esudo
-Maintainer: Jeff Hoogland
+Maintainer: Eric Brown
+Uploaders: Jeff Hoogland, Doug Yanez
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: apturl-elm (elementary apturl frontend)
  An Elementary GUI for apturl written in py-efls.

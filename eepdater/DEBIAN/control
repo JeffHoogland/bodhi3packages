@@ -5,5 +5,7 @@ Priority: optional
 Architecture: all
 Depends: python-efl, python-apt, esudo
 Maintainer: Jeff Hoogland
+Uploaders: Eric Brown, Doug Yanez
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: eepDater GUI System Updater
  An Elementary GUI for installing system updates written in py-efls.

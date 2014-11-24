@@ -3,10 +3,13 @@ Version: 0.3
 Section: main
 Priority: optional
 Depends: e19, radiance-theme-e19, light-themes
-Replaces: bodhi-profile-e19
+Conflicts: e18, bodhi-profile-e18, e17, bodhi-profile-e17
+Replaces: bodhi-profile-e19, bodhi-profile-e18, bodhi-profile-e17
 Provides: bodhi-profile-e19
 Architecture: all
 Maintainer: Jeff Hoogland
+Uploaders: Eric Brown, Doug Yanez
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Bodhi Chromebook Profile
  A Chromebook E19 profile for Bodhi Linux
 

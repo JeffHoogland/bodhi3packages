@@ -5,6 +5,7 @@ Architecture: all
 Depends: light-themes
 Priority: optional
 Maintainer: Jeff Hoogland
+Uploaders: Eric Brown, Doug Yanez
 Description: Radiance Theme - Blue
  Radiance gtk theme - blue
 

@@ -3,7 +3,10 @@ Version: 0.15
 Section: main
 Architecture: all
 Priority: optional
+Depends: e19
+Conflicts: e18, e17
 Maintainer: Jeff Hoogland
+Uploaders: Eric Brown, Doug Yanez
 Description: Radiance Theme
  Radiance E19 theme
 

@@ -2,12 +2,14 @@ Source: bodhi-lightdm-theme
 Priority: optional
 Section: misc
 Maintainer: Jeff Hoogland
+Uploaders: Eric Brown, Doug Yanez
 Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 7)
 
 Package: bodhi-lightdm-theme
 Architecture: all
-Depends: ${misc:Depends}, lightdm-gtk-greeter
+Depends: ${misc:Depends}, enlightenment, lightdm-gtk-greeter
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Bodhi LightDM setup
  The lightdm greeter theme and configuration
  used for a standalone Bodhi installation.

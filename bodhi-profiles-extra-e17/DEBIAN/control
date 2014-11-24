@@ -3,8 +3,11 @@ Version: 0.1
 Section: main
 Priority: optional
 Depends: e17
+Conflicts: e19, e18
 Architecture: all
-Maintainer: Jeff Hoogland
+Maintainer: Doug Yanez
+Uploaders: Jeff Hoogland, Eric Brown
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Additional E17 Configurations for E17
  This package contains the profiles found by default in Bodhi 1.x and 2.x releases
 

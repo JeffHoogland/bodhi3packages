@@ -6,5 +6,7 @@ Replaces: bodhi-skel
 Provides: bodhi-skel
 Architecture: all
 Maintainer: Jeff Hoogland
+Uploaders: Eric Brown, Doug Yanez
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Chromebook Skel Files
  Provides skel files for new chromebook users
