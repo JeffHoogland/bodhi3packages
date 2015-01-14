@@ -1,0 +1,10 @@
+Package: enlightenment-theme-gtk
+Version: 0.1
+Section: main
+Architecture: all
+Priority: optional
+Maintainer: Jeff Hoogland
+Uploaders: Eric Brown, Doug Yanez
+Description: Elightenment Theme - Blue
+ Enlightenment gtk theme - blue
+
