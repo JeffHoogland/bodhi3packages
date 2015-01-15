@@ -1,0 +1,132 @@
+Header: e-gtk-theme/ChangeLog, 2014/11/11 18:58:34 Exp
+
+0.19.3:
+
+gtk-3: update gtk-widgets.css (which was not included in the previous push);
+
+0.19.2:
+
+gtk-2: use bigger image for tab highlight (fix ugly left/right active tab);
+minor active menuitem fix;
+
+0.19.1:
+
+gtk-[23]: tooltip (v2) update; use normal check/radio on hover;
+removed entry outline glow;
+gtk-3: use bevel curved in list (a la e);
+
+0.19.0:
+
+gtk-[23]: tab-bar-v2: update/clean up notebook tabs (gtk-2 is better?/);
+(idea: e.org tab like because e like tab are not possible especially for gtk-2);
+gtk-2: added inset shadow in entry; and use bevel-in frame in notebook;
+gtk-2: use default fg_color for menubar; and new menu (v3);
+
+0.18.4:
+
+* gtk-[23]: notebook clean up; gtk-2: progressbar clean up (removed bevel);
+* gtk-3: added dialog action-area separator; notebook border fix;
+
+0.18.3:
+
+* gtk-2: use bg_notebok for menu; gtk-[23]: use png button for toolbar;
+* gtk-3: improved (again) (small) button and toolbar; GtkGrid fix;
+* gtk-3: spinner update; minor image clean up; toolbar separator fix;
+
+0.18.2: (gtk-3)
+
+* fix toolbar buttons state (broken in 0.18.1);
+* entry update with a nice focus/insensitive/progressbar;
+* added a few GtkFlow/ListBox widgets;
+
+0.18.1: (gtk-3)
+
+* BIG gtk-2 clean up (aka TAB HELL);
+* major gtk-3 notebook overhaul (visual from gt-2) and clean up;
+* minor spinbutton, button, toolbar and therminal update;
+
+0.18.0: (gtk-3)
+
+* Added makefiles to avoid plain copying the whole directory;
+* (gtk-3:) entry update; insensitive sym_{lef,righ}t update;
+
+0.17.4: (gtk-3)
+
+* Fix button, dialog, separator and menuitem widget;
+
+0.17.3: (gtk-3)
+
+* Fix arrow-size and GtkTexView (transparent background in GtkDialog);
+
+0.17.2:
+
+* support larger toolbar (gtk-[23].0;
+* Re-fixed dialog; Fix separator; Fix check (almost functionnal);
+button update (nicer look).
+
+0.17.1: (gtk-3)
+
+* fixed scroll button (removed unecessary adwaita engine),
+gtk+-3.0 support themable scroll button (arrows are not);
+* fix background color (set default) and GtkBox/ToolButton/Dialog;
+* fix grip, menuitem, {action,info,header,search}-bar;
+* and clean up headers (still check&radio buttons are too buggy).
+
+0.17.0:
+
+* updated notebook bg;
+* added a menubar separator;
+* cropped button image to get fewer shadow;
+* minor fixes;
+* gtk+-3 cannot be finished because of... lack of documentation.
+
+0.16.9/10:
+
+* clean up gtk+-2;
+* added spinner animation (not tested);
+* updated GtkNotebook (gtk+-2) to the new menu like tabs;
+* fixed button state (look much better);
+* added expander arrows (gtk+-2 only, how to make gtk+3 counterpart?);
+* update progressbar to GtkScale like look;
+
+0.16.8:
+
+* fix: added tab images (forgoten from previous bug fix release);
+* improved gtk+-3 GtkNotebook and GtkTreeView;
+* added adwaita engine dependency to fix insensitive arrows for now;
+
+0.16.7:
+
+* reverted unified tabs (left/right/top tabs were more than awfull);
+* GtkNotebook update (gtk+-3 notebook page focus is nice(?), cannot do the
+same for gtk+-2), now bottom tabs (for upper notebook pages) aren't that nice;
+* added metacity and start-here.pngg forgetted image files;
+* fixed base color definitions (thanks to a. özkan for reporting),
+normaly >=gtk+-2.12 (iirc) shoud support `; ' instead of `\n';
+
+0.16.6:
+
+* fixed gtk-2.0/tabs following 0.16.5 version bump;
+
+0.16.5:
+
+* unified tabs;
+* added gtk-3.0/img symlink;
+* fixes and fixes.
+
+0.16.3:
+
+* gtk+-2: fixed notebook tab images; minor fixes/edits/update;
+* gtk+-3: major updates/edits/fixes; remain: GtkComboBox, GtkSpinButton,
+GtkEntry to name the major widgets and how to globally define GtkShadowType
+and GtkArrow globaly.
+
+0.16.2:
+
+* gtk+-2: minor fixes/edits/updates;
+* gtk+-3: initial gtk-3.0 files/commit;
+
+0.16.0:
+
+* see commits;
+
