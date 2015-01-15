@@ -1,1 +1,149 @@
-@import url("gtk-main.css");
+/*
+ * Header:  e/gtk-3.0/gtk-main.css           Exp
+ * Author:  -tclover <tokiclover@gmail.com>  Exp
+ * License: 2-clause BSD (see COPYING file)  Exp
+ *
+ * HomePage: https://github.com/tokiclover/e-gtk-theme
+ *
+ * this is a gtk+-3.0 theme to match the new >=enlightenment-0.17.0 (DR17+)
+ * window manager dark default theme
+ * 
+ * CopyLeft (c) 2012-2014 tclover <tokiclover@gmail.com>
+ */
+
+@define-color base_color #484848;
+@define-color bg_color #424242;
+@define-color bg_color_dark shade(@bg_color,0.95);
+@define-color fg_color #fafafa;
+@define-color text_color #fafafa;
+@define-color selected_bg_color #245f99;
+@define-color selected_fg_color #181818;
+@define-color insensitive_bg_color alpha(@selected_bg_color,0.80);
+@define-color insensitive_fg_color alpha(@selected_fg_color,0.80);
+@define-color tooltip_bg_color #181818;
+@define-color tooltip_fg_color #aaaaaa;
+@define-color link_color shade(@selected_bg_color,1.1);
+
+@define-color info_fg_color @fg_color;
+@define-color info_bg_color @bg_color;
+@define-color warning_fg_color @text_color;
+@define-color warning_bg_color @base_color;
+@define-color question_fg_color @text_color;
+@define-color question_bg_color @base_color;
+@define-color error_fg_color @text_color;
+@define-color error_bg_color @base_color;
+
+* {
+	padding: 2px;
+	background-color: @base_color;
+	background-clip: padding-box;
+	color: @fg_color;
+
+	-GtkScrollbar-has-backward-stepper: true;
+	-GtkScrollbar-has-forward-stepper: true;
+	-GtkScrollbar-has-secondary-backward-stepper: false;
+	-GtkScrollbar-has-secondary-forward-stepper: false;
+	-GtkRange-stepper-spacing: 0;
+	-GtkRange-trough-border: 0px;
+	-GtkRange-trough-under-steppers: false;
+	-GtkRange-slider-width: 15;
+	-GtkScrollbar-min-slider-length: 42;
+
+	-GtkScale-slider-width: 16;
+	-GtkScale-slider-length: 16;
+	-GtkScale-trough-border: 0;
+	-GtkScale-value-spacing: 0;
+
+	-GtkNotebook-tab-overlap: -1;
+	-GtkNotebook-tab-curvature: 0;
+	-GtkNotebook-has-tab-gap: false;
+	-GtkNotebook-initial-gap: 8;
+
+	-GtkArrow-arrow-size: 15;
+	-GtkCheckButton-indicator-size: 11;
+	-GtkCheckMenuItem-indicator-size: 11;
+	-GtkToolButton-icon-spacing: 0;
+	-GtkTooltip-has-tooltip: 1;
+	-GtkTextView-error-underline-color: @text_color;
+	-GtkPaned-handle-size: 6;
+	-GtkProgressBar-min-horizontal-bar-height: 13;
+	-GtkProgressBar-min-horizontal-bar-width: 80;
+	-GtkProgressBar-min-vertical-bar-height: 80;
+	-GtkProgressBar-min-vertical-bar-width: 13;
+	-GtkScrolledWindow-scrollbar-spacing: 0;
+	-GtkScrolledWindow-scrollbars-within-bevel: false;
+	-GtkToolItemGroup-expander-size: 11;
+	-GtkTreeView-expander-size: 11;
+	-GtkTreeView-indent-expanders: true;
+	-GtkExpander-expander-size: 11;
+	-GtkMenu-horizontal-padding: 0;
+	-GtkMenu-vertical-padding: 0;
+	-GtkIMHtml-hyperlink-color: @link_color;
+	-GtkHTML-link-color: @link_color;
+	-WnckTasklist-fade-overlay-rect: 0;
+
+	-GtkWidget-link-color: @link_color;
+	-GtkWidget-visited-link-color: darker(@link_color);
+	-GtkWidget-focus-padding: 2;
+	-GtkWidget-focus-line-width: 0;
+	-GtkWidget-wide-separators: 1;
+	-GtkWidget-separator-height: 2px;
+	-GtkWidget-separator-width: 2px;
+	-GtkWindow-resize-grip-width: 15;
+	-GtkWindow-resize-grip-height: 15;
+	-GtkWidget-cursor-color: @text_color;
+	-GtkWidget-cursor-aspect-ratio: 0.1; 
+	-GtkWidget-secondary-cursor-color: darker(@text_color);  
+
+	-GtkEntry-cursor-color: @text_color;
+	-GtkEntry-inner-border: 1px;
+}
+
+* { color: inherit }
+* { background-color: inherit }
+
+*:active
+*:active:focus,
+*:hover {
+	color: @selected_bg_color;
+}
+
+*:selected:focus {
+	background-color: @selected_fg_color;
+	color: @selected_bg_color;
+}
+*:selected {
+	background-color: @selected_bg_color;
+	color: @selected_fg_color;
+}
+
+*:insensitive {
+	color: @insensitive_fg_color;
+}
+
+GtkSwitch { text-shadow: 2px 2px 2px @selected_fg_color }
+
+GtkTreeView row:nth-child(even) {
+	background-color: @base_color;
+	border-image: url("img/bevel_curved_horiz_out.png") 1 1 1 1 / 1px 1px 1px 1px stretch;
+}
+GtkTreeView row:nth-child(odd) {
+	background-color: shade(@bg_color,0.90);
+	border-image: url("img/bevel_curved_horiz_out.png") 2 1 1 1 / 1px 1px 1px 1px stretch;
+}
+GtkTreeView row:selected {
+	background-image: url("img/vgrad_dark.png");
+	background-origin: border-box;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border-image: url("img/bevel_out.png") 1 1 1 1 / 1px 1px 1px 1px stretch;
+	color: @selected_bg_color;
+}
+
+@import url("gtk-widgets.css");
+@import url("apps/term.css");
+
+/*
+ * vim:fenc=utf-8:ft=css:ci:pi:sts=0:sw=4:ts=4:
+ */
