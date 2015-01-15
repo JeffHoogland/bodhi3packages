@@ -1,9 +1,9 @@
 Package: bodhi-lightdm-theme
-Version: 1.05
+Version: 1.06
 Architecture: all
 Maintainer: Jeff Hoogland
-Installed-Size: 399
-Depends: lightdm-gtk-greeter
+Installed-Size: 552
+Depends: enlightenment, lightdm-gtk-greeter
 Section: misc
 Priority: optional
 Description: Bodhi LightDM setup
