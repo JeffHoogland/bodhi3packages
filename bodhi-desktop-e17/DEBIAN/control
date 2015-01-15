@@ -1,8 +1,8 @@
 Package: bodhi-desktop-e17
-Version: 0.01
+Version: 0.02
 Section: main
 Priority: optional
-Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, esudo, bodhi-skel, e17, bodhi-profile-e17, bodhi-theme-e17-speedy, eepdater, epad, matrilneare-icon-theme, bodhi-plymouth-theme, evas-generic-loaders, bc, bash-completion, lupin-casper, policykit-desktop-privileges, terminology, packagekit, lxmenu-data, xdg-utils, bodhi-quickstart, python-dbus, apturl-elm
+Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, enlightenment-theme-gtk, esudo, bodhi-skel, e17, bodhi-profile-e17, eepdater, epad, matrilneare-icon-theme, bodhi-plymouth-theme, evas-generic-loaders, bc, bash-completion, lupin-casper, policykit-desktop-privileges, terminology, packagekit, lxmenu-data, xdg-utils, bodhi-quickstart, python-dbus, apturl-elm
 Conflicts: bodhi-desktop, bodhi-profile-e19, e19, bodhi-profile-e18, e18
 Architecture: all
 Maintainer: Doug Yanez
