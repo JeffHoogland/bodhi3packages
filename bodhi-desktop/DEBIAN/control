@@ -1,5 +1,5 @@
 Package: bodhi-desktop
-Version: 0.21
+Version: 0.26
 Section: main
 Priority: optional
 Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, enlightenment-theme-gtk, esudo, bodhi-skel, e19, bodhi-profile-e19, eepdater, epad, matrilneare-icon-theme, bodhi-plymouth-theme, evas-generic-loaders, bc, bash-completion, lupin-casper, epulse-e19, policykit-desktop-privileges, terminology, packagekit, lxmenu-data, xdg-utils, bodhi-quickstart, python-dbus, apturl-elm, udisks2
