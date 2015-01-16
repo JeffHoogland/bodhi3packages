@@ -1,7 +1,7 @@
 [Desktop Entry]
 Hidden=false
 Exec=esudo eepDater
-Icon=software-center
+Icon=update-manager
 Type=Application
 Categories=System;
 NoDisplay=false
