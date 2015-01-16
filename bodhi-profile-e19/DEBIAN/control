@@ -1,5 +1,5 @@
 Package: bodhi-profile-e19
-Version: 0.15
+Version: 0.16
 Section: main
 Priority: optional
 Depends: e19
