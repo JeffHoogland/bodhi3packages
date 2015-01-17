@@ -1,0 +1,10 @@
+Package: bodhi-background-edj
+Version: 0.01
+Section: main
+Priority: optional
+Architecture: all
+Maintainer: Eric Brown
+Uploaders: Jeff Hoogland, Doug Yanez
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
+Description: Bodhi Background
+ Contains Bodhi's custom desktop background.
