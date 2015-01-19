@@ -1,9 +1,9 @@
 Package: bodhi-quickstart
-Version: 1.4.12
+Version: 1.5.0
 Section: main
 Priority: optional
 Architecture: all
-Depends: bodhi-e17guide, ttf-ubuntu-font-family
+Depends: ttf-ubuntu-font-family
 Installed-Size:
 Maintainer: Eric Brown
 Uploaders: Jeff Hoogland, Doug Yanez
