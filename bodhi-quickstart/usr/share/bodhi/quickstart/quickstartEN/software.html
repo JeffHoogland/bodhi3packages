@@ -83,14 +83,34 @@ Internet</a>.</p>
 </div>
 
 <div class="contentcontainer">
-<div class="orange ninetywidth center">
-<h2>Updating System</h2>
-<p>The first thing to do after establishing an internet connection is to update your system.<br /><br /> There are multiple methods to achieve this, but
-the simplest method can be done by opening the Terminology application, located in <span class="smalltext">Main Menu>Applications>Accessories</span>, 
-and running this command:<br /><br />
-<span class="greentext boldtext largelh"><code>sudo apt-get update && sudo apt-get -y dist-upgrade</code></span><br /><br />
+<div class="green ninetywidth center">
+<h2>Updating System via eepDater</h2>
+<p>The first thing to do after establishing an internet connection is to update your system.<br /><br /> 
+There are multiple methods to achieve this, but
+the simplest method is by using the eepDater application and widget, located on your top shelf. If updates are avialable, you will see this icon:<br /><br />
+<span class="normalpicture"><img src="../images/eepDaterUpdates.png" alt="(Example of eepDater.)" class="tenwidth left tallimageonlowwidth" /></span>
+<br />
+If your system is fully updated, you'll see this icon:
+<span class="normalpicture"><img src="../images/eepDaterUpdated.png" alt="(Example of eepDater.)" class="tenwidth left tallimageonlowwidth" /></span><br /><br />
 <span class="smallertext"><code>
-Note:</code>&nbsp;This command relies on the <a class="normal" href="#apt-get">apt-get</a> command-line tool and can be done any time you want to update your system(apps & all) to the newest versions possible.</span></p>
+Note:</code>This icon is not available on the Legacy version of Bodhi. You will need to manually launch eepDater from the applications menu.</span>
+</p>
+<p>
+A simple Left-Click on the icon will show you the list of updates that are avialable for your system:<br /><br />
+<img src="../images/eepDaterList.png" alt="(Example of Updates Available)" class="thirtywidth center changeonlowwidth" />
+To install the updates, click on the <strong>Run the package manager</strong> button. esudo will launch asking you for your password. Once permission from esudo is complete, you see another list of all avialable updates:
+<img src="../images/eepDaterListWindow.png" alt="(Example of Updates Available)" class="thirtywidth center changeonlowwidth" />
+<br /><br />
+Here you have the option of selecting individual packages to update by selecting the checkbox under the "upgrade" collumn or you can quickly select all packages by clicking on the <strong>Select All</strong> button at the top. Once packages have been selected, click on the <strong>Apply</strong> button and the system will begin updating your system. When complete, you will see the window refesh and be left with an empty window:
+<img src="../images/eepDaterListWindowEmpty.png" alt="(Example of Updates Available)" class="thirtywidth center changeonlowwidth" />
+</p></div></div>
+
+<div class="contentcontainer">
+<div class="orange ninetywidth center">
+<h2>Updating System via Terminology</h2>
+While it is no longer recommended that users update via the command line, it is still possible to do so by running the following command in Terminology:
+<span class="greentext boldtext largelh"><code>sudo apt-get update && sudo apt-get -y dist-upgrade</code></span><br /><br />
+</p>
 </div>
 </div>
 
