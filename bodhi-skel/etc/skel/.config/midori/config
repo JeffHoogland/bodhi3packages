@@ -9,7 +9,7 @@ toolbar-style=MIDORI_TOOLBAR_ICONS
 homepage=file:///usr/share/bodhi/quickstart/quickstartEN/index.html
 speed-dial-in-new-tabs=false
 text-editor=epad %f
-location-entry-search=http://www.google.com/search?q=%s
+location-entry-search=https://duckduckgo.com/?q=%s&t=bodhi 
 open-tabs-in-the-background=true
 enable-html5-database=true
 identify-as=MIDORI_IDENT_FIREFOX
