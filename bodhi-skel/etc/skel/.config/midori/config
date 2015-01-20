@@ -2,14 +2,15 @@
 [settings]
 default-encoding=ISO-8859-1
 last-window-width=800
-last-window-height=536
-last-web-search=2
+last-window-height=400
+last-window-state=MIDORI_WINDOW_MAXIMIZED
+last-web-search=0
 toolbar-style=MIDORI_TOOLBAR_ICONS
 homepage=file:///usr/share/bodhi/quickstart/quickstartEN/index.html
 speed-dial-in-new-tabs=false
-text-editor=leafpad %f
+text-editor=epad %f
 location-entry-search=http://www.google.com/search?q=%s
 open-tabs-in-the-background=true
 enable-html5-database=true
 identify-as=MIDORI_IDENT_FIREFOX
-user-agent=Mozilla/5.0 (X11; U; Linux; en-us; rv:1.9.0.2) Gecko/2008092313 Firefox/3.8 Midori/0.3
+user-agent=Mozilla/5.0 (X11; Linux) AppleWebKit/538.15 (KHTML, like Gecko) Chrome/18.0.1025.133 Safari/538.15 Midori/0.5
