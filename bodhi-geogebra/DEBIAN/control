@@ -1,0 +1,10 @@
+Package: bodhi-geogebra
+Version: 0.6
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: geogebra, geogebra-gnome
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for Geogebra
+ Bodhi meta-package for Geogebra, a dynamic
+ mathematics education software

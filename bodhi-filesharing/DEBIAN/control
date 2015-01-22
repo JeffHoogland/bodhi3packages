@@ -1,0 +1,9 @@
+Package: bodhi-filesharing
+Version: 0.52
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: samba, gvfs-backends, smbclient, cifs-utils
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A meta-package for Samba
+ Samba sharing meta-package
