@@ -1,0 +1,10 @@
+Package: bodhi-educational-kids
+Version: 0.2
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: childsplay, gcompris, tuxmath, tuxpaint, tuxtype, gbrainy, brainparty, pysiogame
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: Bodhi Educational Suite for Kids
+ A meta-package to install a selection of educational 
+ software geared toward kids
