@@ -1,0 +1,10 @@
+Package: bodhi-online-media
+Version: 0.22
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: openjdk-7-jre-headless, ubuntu-restricted-extras
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: Bodhi Online Media Bundle
+ A Bodhi Linux meta-package to allow viewing online media,
+ such as youtube videos, flash games, or web-apps requiring java.

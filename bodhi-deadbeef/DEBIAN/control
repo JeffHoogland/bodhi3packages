@@ -1,0 +1,9 @@
+Package: bodhi-deadbeef
+Version: 1.01
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: deadbeef-static, gstreamer0.10-tools, gstreamer0.10-alsa
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for Deadbeef
+ Bodhi Linux light-weight music player meta-package

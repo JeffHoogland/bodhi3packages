@@ -1,0 +1,26 @@
+Package: bodhi-light
+Version: 0.55
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: claws-mail, midori, bodhi-lightoffice, xfburn, bodhi-deadbeef, bodhi-vlc, xchat, ephoto, geany, epdfview, pinta, qalculate-gtk, htop, lxterminal
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi light applications bundle
+ Light-weight application suite for the Bodhi Linux Desktop
+ ----------------------------------------------------------
+ Included packages
+ ----------------------------------------------------------
+ bodhi-deadbeef
+ bodhi-lightoffice
+ bodhi-vlc
+ claws-mail
+ epdfview
+ ephoto
+ geany
+ htop
+ lxterminal
+ midori
+ pinta
+ qalculate-gtk
+ xchat
+ xfburn

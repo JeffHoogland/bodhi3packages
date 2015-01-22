@@ -1,0 +1,13 @@
+Package: bodhi-recommends
+Version: 2.31
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: bodhi-openshot, cheese, catfish, bodhi-transmission, shotwell, gedit, calibre, libreoffice, bodhi-rhythmbox, hexchat, thunderbird, geeqie, filelight, xfburn, gimp, bodhi-handbrake, bodhi-vlc, bodhi-pidgin, qalculate-gtk, bodhi-printing, simple-scan, firefox, htop, bleachbit, einfo, gparted, unetbootin, file-roller
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: Bodhi-recommended desktop application bundle
+ A Bodhi Linux meta-package to install fully-featured
+ applications hand-picked by the Bodhi team and community.
+ This package is for users who have resources to spare
+ and want apps with nicer looks and more features. 
+ For a lighter application suite, install bodhi-light.

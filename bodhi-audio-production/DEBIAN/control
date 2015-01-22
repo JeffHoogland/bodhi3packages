@@ -1,0 +1,9 @@
+Package: bodhi-audio-production
+Version: 0.3
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: rosegarden, audacity, jack, qsynth, hydrogen, ardour3, jackeq, ubuntustudio-audio-plugins, jack-rack, playitslowly
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: Bodhi audio production bundle
+ A Bodhi Linux meta-package to install audio production software

@@ -1,0 +1,9 @@
+Package: bodhi-rhythmbox
+Version: 0.7
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: rhythmbox, gstreamer0.10-tools, gstreamer0.10-alsa
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A meta-package for Rhythmbox
+ Bodhi Linux Rhythmbox music player meta-package

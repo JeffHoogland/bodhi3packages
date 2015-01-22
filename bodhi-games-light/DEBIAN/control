@@ -1,0 +1,27 @@
+Package: bodhi-games-light
+Version: 0.3
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: slashem-x11, blockout2, gnome-mines, gnome-sudoku, whichwayisup, aisleriot, blobby, tumiki-fighters, out-of-order, vor, brainparty, cuyo, rrootage
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for light games
+ A light-weight set of games hand-picked for Bodhi users.
+ These games should run well on Bodhi machines without
+ needing a powerful computer to run them.
+ ---------------------------
+ Games include
+ ---------------------------
+ aisleriot
+ blobby
+ blockout2
+ brainparty
+ cuyo
+ gnome-mines
+ gnome-sudoku
+ out-of-order
+ rrootage
+ slashem-x11
+ tumiki-fighters
+ vor
+ whichwayisup 	

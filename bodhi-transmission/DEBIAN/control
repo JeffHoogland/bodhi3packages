@@ -1,0 +1,9 @@
+Package: bodhi-transmission
+Version: 0.7
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: transmission-gtk, transmission-cli
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for Transmission
+ Bodhi Linux meta-package for Transmission torrent client 
