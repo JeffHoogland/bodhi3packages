@@ -1,0 +1,9 @@
+Package: bodhi-image-editing
+Version: 0.2
+Section: main
+Priority: optional
+Architecture: all
+Depends: gimp, inkscape, blender, ephoto
+Maintainer: Gareth Williams
+Description: Bodhi Image Editing Bundle
+ A Bodhi meta-package to install image editing software
