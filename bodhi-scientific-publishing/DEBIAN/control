@@ -1,9 +1,9 @@
 Package: bodhi-scientific-publishing
-Version: 0.3
+Version: 0.4
 Section: main
 Priority: optional
 Architecture: all
-Depends: texlive-latex-base, texmaker, xpdf, gnuplot
+Depends: texlive-latex-base, texmaker, evince, gnuplot
 Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
 Description: Bodhi Scientific Publishing meta-package
  A Bodhi meta-package for scientific publishing applications
