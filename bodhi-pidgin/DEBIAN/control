@@ -1,0 +1,9 @@
+Package: bodhi-pidgin
+Version: 0.7
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: pidgin, pidgin-plugin-pack
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A meta-package for Pidgin
+ Bodhi Linux Pidgin instant messenger client meta-package

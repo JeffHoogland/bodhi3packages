@@ -1,0 +1,9 @@
+Package: bodhi-handbrake
+Version: 0.7
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: handbrake, handbrake-cli
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for Handbrake
+ Bodhi Linux Handbrake Media Ripper/Transcoder Meta Package

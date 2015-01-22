@@ -1,0 +1,9 @@
+Package: bodhi-programming
+Version: 0.3
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: eclipse, build-essential, meld, gdb, codeblocks
+Maintainer: Gareth Williams
+Description: Bodhi Programming Bundle
+ Bodhi Linux meta-package to install programming software

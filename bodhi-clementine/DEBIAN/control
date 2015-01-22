@@ -1,0 +1,9 @@
+Package: bodhi-clementine
+Version: 0.7
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: clementine, gstreamer0.10-tools, gstreamer0.10-alsa
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A meta-package for Clementine
+ Bodhi Linux meta-package for Clementine music player

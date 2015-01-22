@@ -1,0 +1,9 @@
+Package: bodhi-openshot
+Version: 0.53
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: openshot, frei0r-plugins, python-httplib2
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for Openshot
+ Bodhi Linux Openshot Video Editor meta-package

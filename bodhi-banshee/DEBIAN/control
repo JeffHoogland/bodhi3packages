@@ -1,0 +1,9 @@
+Package: bodhi-banshee
+Version: 0.7
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: banshee, gstreamer0.10-tools, gstreamer0.10-alsa
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for Banshee
+ Bodhi Linux Banshee music player meta-package

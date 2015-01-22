@@ -1,0 +1,9 @@
+Package: bodhi-chromium
+Version: 0.02
+Architecture: all
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Depends: chromium-browser, libexif12
+Section: unknown
+Priority: optional
+Description: A Bodhi meta-package for Chromium web browser
+ Bodhi Linux Chromium browser meta-package

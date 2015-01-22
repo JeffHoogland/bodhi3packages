@@ -1,0 +1,15 @@
+Package: bodhi-lightoffice
+Version: 0.7
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: abiword, gnumeric, inkscape
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for Lightoffice
+ Bodhi Linux Lightoffice meta-package
+ ------------------------------------
+ Included packages
+ ------------------------------------
+ abiword
+ gnumeric
+ inkscape

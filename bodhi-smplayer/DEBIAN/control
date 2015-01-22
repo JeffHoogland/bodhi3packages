@@ -1,0 +1,9 @@
+Package: bodhi-smplayer
+Version: 0.7
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: smplayer, gstreamer0.10-tools, gstreamer0.10-alsa
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for SMPlayer
+ Bodhi Linux meta-package for SMPlayer multimedia player (mplayer front-end) 

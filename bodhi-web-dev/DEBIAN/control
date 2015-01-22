@@ -1,0 +1,9 @@
+Package: bodhi-web-dev
+Version: 0.3
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: bluefish, mysql-server, mysql-client, php5-mysql, phpmyadmin, apache2, git-core, libapache2-mod-php5
+Maintainer: Robert Wiley <ylee@bodhilinux.com>
+Description: Bodhi Web Dev meta-package
+ A Bodhi Linux meta-package to install web development software

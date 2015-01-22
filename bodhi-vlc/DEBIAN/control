@@ -1,0 +1,9 @@
+Package: bodhi-vlc
+Version: 0.7
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: vlc, gstreamer0.10-tools, gstreamer0.10-alsa
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for vlc
+ Bodhi Linux meta-package for VLC multimedia player
