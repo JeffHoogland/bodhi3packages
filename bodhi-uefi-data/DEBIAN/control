@@ -1,0 +1,11 @@
+Package: bodhi-uefi-data
+Version: 0.02
+Section: main
+Priority: optional
+Architecture: all
+Depends: remastersys
+Maintainer: Jeff Hoogland
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
+Description: UEFI Data
+ UEFI data extracted from the Ubuntu 14.04.1 64bit ISO image for use with the bodhibuilder script
+
