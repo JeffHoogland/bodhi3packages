@@ -1,5 +1,5 @@
 Package: bodhi-uefi-data
-Version: 0.02
+Version: 0.04
 Section: main
 Priority: optional
 Architecture: all
