@@ -1,0 +1,10 @@
+Package: libreoffice
+Version: 1:4.3.5bodhi1
+Section: main
+Priority: optional
+Architecture: all
+Depends: libreoffice-math, libreoffice-writer, libreoffice-calc, libreoffice-base, libreoffice-draw, libreoffice-impress, libreoffice4.3-en-us, libobasis4.3-ooolinguistic, libobasis4.3-gnome-integration, hunspell-en-us
+Maintainer: Jeff Hoogland
+Description: libreoffice
+  A meta package to transition to LibreOffice 4.3
+

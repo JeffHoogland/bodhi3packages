@@ -1,0 +1,10 @@
+Package: libreoffice-draw
+Version: 1:4.3.0bodhi1
+Section: main
+Priority: optional
+Architecture: all
+Depends: libreoffice4.3-draw, libreoffice4.3-en-us, libobasis4.3-ooolinguistic
+Maintainer: Jeff Hoogland
+Description: libreoffice-draw
+  A meta package to transition to LibreOffice 4.3
+
