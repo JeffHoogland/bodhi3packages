@@ -1,5 +1,5 @@
 Package: bodhi-maxo-remix
-Version: 0.52
+Version: 0.53
 Section: main
 Priority: optional
 Architecture: all

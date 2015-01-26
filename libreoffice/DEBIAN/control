@@ -1,5 +1,5 @@
 Package: libreoffice
-Version: 1:4.3.5bodhi2
+Version: 1:4.3.5bodhi3
 Section: main
 Priority: optional
 Architecture: all
@@ -7,6 +7,6 @@ Depends: libreoffice-math, libreoffice-writer, libreoffice-calc, libreoffice-bas
 Replaces: libreoffice-common
 Conflicts: libreoffice-common
 Maintainer: Jeff Hoogland
-Description: libreoffice
-  A meta package to transition to LibreOffice 4.3
+Description: Libreoffice 4.3
+  LibreOffice is a free and open source office suite, developed by The Document Foundation. It was forked from OpenOffice.org in 2010, which was an open-sourced version of the earlier StarOffice. The LibreOffice suite comprises programs to do word processing, spreadsheets, slideshows, diagrams and drawings, maintain databases, and compose mathematical formulae.
 

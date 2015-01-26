@@ -1,10 +1,10 @@
 Package: bodhi-openoffice
-Version: 1:4.1.1bodhi1
+Version: 1:4.1.1bodhi2
 Section: main
 Priority: optional
 Architecture: all
 Depends: openoffice, openoffice-math, openoffice-writer, openoffice-calc, openoffice-base, openoffice-draw, openoffice-impress, openoffice-gnome-integration, openoffice-images, openoffice-ure, openoffice-pyuno, openoffice-brand-base, openoffice-brand-calc, openoffice-brand-draw, openoffice-brand-en-us, openoffice-brand-impress, openoffice-brand-math, openoffice-brand-writer, openoffice-debian-menus, hunspell-en-us
 Maintainer: Jeff Hoogland
-Description: Open Office
-  A meta package to pull in all of OpenOffice 4.1.1
+Description: Apache OpenOffice 4.1
+  Apache OpenOffice (AOO) is an open-source office productivity software suite. It is a successor project of OpenOffice.org that incorporates code merged from the IBM Lotus Symphony code base. It contains a word processor (Writer), a spreadsheet (Calc), a presentation application (Impress), a drawing application (Draw), a formula editor (Math), and a database management application (Base).
 
