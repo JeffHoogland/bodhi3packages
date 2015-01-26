@@ -1,0 +1,9 @@
+Package: bodhi-wps-office
+Version: 0.1
+Section: Office
+Priority: optional
+Architecture: all
+Depends: wps-office
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: WPS Office
+ WPS Office including Writer, Presentation and Spreadsheets, is a powerful office suite, which is able to process word file, produce wonderful slides, and analyze data as well. It is deeply compatible with all of the latest Microsoft Office file formats. It can easily open and read the documents created with Microsoft Office.
