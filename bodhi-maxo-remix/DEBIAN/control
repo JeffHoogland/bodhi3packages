@@ -1,0 +1,9 @@
+Package: bodhi-maxo-remix
+Version: 0.52
+Section: main
+Priority: optional
+Architecture: all
+Installed-Size:
+Maintainer: Jeff Hoogland
+Description: maxo-remix Icon Theme
+ maxo-remix icon theme for your Bodhi Desktop 

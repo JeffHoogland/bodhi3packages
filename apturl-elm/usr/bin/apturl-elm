@@ -240,7 +240,7 @@ class MainWin(StandardWindow):
         
         # create the main window
         StandardWindow.__init__(self, "apturl-elm", "Bodhi Application Installer",
-                                autodel=True, size=(320, 160))
+                                autodel=True)
         self.callback_delete_request_add(lambda o: elementary.exit())
         self.app = app
 
@@ -266,6 +266,8 @@ class MainWin(StandardWindow):
         self.resize_object_add(self.flip)
         self.flip.show()
 
+        self.size=(400, 0)
+
         # show the window
         self.show()
         
@@ -274,6 +276,10 @@ class MainWin(StandardWindow):
         self.currentDescription.text = packageDes
         self.label.text = "Would you like to install <b>%s</b>?" %self.packageName
         self.desFrame.text = "Description:"
+        validIcon = self.icon.standard_set(self.packageName)
+        print validIcon
+        if not validIcon:
+            self.icon.standard_set("system-software-installer")
 
     def buildDetailsWin(self):
         self.updateText = Entry(self, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
@@ -355,6 +361,20 @@ class MainWin(StandardWindow):
         self.desFrame.content = self.currentDescription
         self.desFrame.show()
         
+        self.icon = Icon(self, size_hint_weight=(0.25, 0.25), size_hint_align=FILL_BOTH)
+        validIcon = self.icon.standard_set(self.packageName)
+        if not validIcon:
+            self.icon.standard_set("system-software-installer")
+        self.icon.show()
+        
+        self.desBox = Box(self, size_hint_weight=EXPAND_HORIZ,
+                              size_hint_align=FILL_HORIZ)
+        self.desBox.horizontal_set(True)
+        self.desBox.show()
+        
+        self.desBox.pack_end(self.icon)
+        self.desBox.pack_end(self.desFrame)
+        
         self.buttonBox = Box(self, size_hint_weight=EXPAND_HORIZ,
                               size_hint_align=FILL_HORIZ)
         self.buttonBox.horizontal_set(True)
@@ -376,10 +396,10 @@ class MainWin(StandardWindow):
         self.buttonBox.pack_end(self.installButton)
 
         # add all of our objects to the box
-        box = Box(self, size_hint_weight=EXPAND_BOTH,
-                           size_hint_align=FILL_BOTH)
+        box = Box(self, size_hint_weight=EXPAND_HORIZ,
+                           size_hint_align=FILL_HORIZ)
         box.pack_end(self.label)
-        box.pack_end(self.desFrame)
+        box.pack_end(self.desBox)
         box.pack_end(self.buttonBox)
         box.show()
 
@@ -395,6 +415,7 @@ class MainWin(StandardWindow):
         if not already and not notfound:
             self.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
             self.label.text = "<b>Successful Package Installation!</b>"
+            self.icon.standard_set("dialog-ok")
             self.currentDescription.text = "Package %s has been successfully installed on your computer. You should be able to find in your main menu under 'Applications' \n\nYou can close this window."%self.packageName
             
             self.installButton.text = "Info"
@@ -406,6 +427,7 @@ class MainWin(StandardWindow):
             self.installButton.delete()
         elif notfound:
             self.label.text = "<b>Package Not found!</b>"
+            self.icon.standard_set("dialog-error")
             self.currentDescription.text = "Cannot locate package %s for installation. If you have not done so already, try refreshing your package sources using the button below."%self.packageName
             self.installButton.text = "Refresh"
             self.installButton.callback_pressed_del(self.installPressed)
@@ -452,13 +474,13 @@ class apturl(object):
         
     def setPackageInfo(self):
         if self.packageName in self.apt.cache:
-			self.packageObj = self.apt.cache[self.packageName]
-			self.packageVersion = self.apt.cache[self.packageName].versions[0]
-			packageDes = self.apt.cache[self.packageName].versions[0].description
-			if not self.packageObj.is_installed:
-				self.win.setPackageInfo(packageDes)
-			else:
-				self.win.installDone(already=True)
+            self.packageObj = self.apt.cache[self.packageName]
+            self.packageVersion = self.apt.cache[self.packageName].versions[0]
+            packageDes = self.apt.cache[self.packageName].versions[0].description
+            if not self.packageObj.is_installed:
+                self.win.setPackageInfo(packageDes)
+            else:
+                self.win.installDone(already=True)
         else:
             self.win.installDone(notfound=True)
 
@@ -504,7 +526,7 @@ if __name__ == "__main__":
     package = args.split(":")[1]
     
     if package.startswith("///"):
-		package = package[3:]
+        package = package[3:]
     
     if "?" in package:
         refresh = package.split("?")[1]
