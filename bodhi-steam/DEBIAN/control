@@ -1,0 +1,9 @@
+Package: bodhi-steam
+Version: 0.1
+Section: games
+Priority: optional
+Architecture: all
+Depends: steam
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: Steam
+ Valve's Steam digital software delivery system

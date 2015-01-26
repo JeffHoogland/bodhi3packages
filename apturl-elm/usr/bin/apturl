@@ -9,5 +9,5 @@ elif [ -x /usr/bin/apturl-gtk ]; then
 elif [ -x /usr/bin/apturl-kde ]; then
     apturl-kde $@
 else
-    echo "Please install apturl-gtk or apturl-kde."
+    echo "Please install apturl-gtk, apturl-kde or apturl-elm."
 fi

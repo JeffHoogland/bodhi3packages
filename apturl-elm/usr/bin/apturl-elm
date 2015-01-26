@@ -48,7 +48,7 @@ ALIGN_CENTER = 0.5, 0.5
 def statusMessage(text, text2="", text3="", text4=""):
     global progressque
     progressque.append("%s%s%s%s"%(text, text2, text3, text4))
-    print(text, text2, text3, text4)
+    #print(text, text2, text3, text4)
 
 class operationProgress(BaseOpProgress):
     """Display the progress of operations such as opening the cache."""
@@ -120,7 +120,7 @@ class downloadProgress(BaseAcquireProgress):
 
     def pulse(self, owner):
         """Periodically invoked while the Acquire process is underway."""
-        BaseAcquireProgress.stop(self, owner)
+        BaseAcquireProgress.stop(self)
         statusMessage("PULSE  items:%d/%d  bytes:%.1f/%.1f  rate:%.1f  elapsed:%d" % (
               self.current_items, self.total_items, 
               self.current_bytes, self.total_bytes,
@@ -235,7 +235,9 @@ class ThreadedAPT(object):
 
 
 class MainWin(StandardWindow):
-    def __init__(self, app):
+    def __init__(self, app, packageName):
+        self.packageName = packageName
+        
         # create the main window
         StandardWindow.__init__(self, "apturl-elm", "Bodhi Application Installer",
                                 autodel=True, size=(320, 160))
@@ -245,7 +247,7 @@ class MainWin(StandardWindow):
         icon = Icon(self)
         icon.size_hint_weight_set(EVAS_HINT_EXPAND, EVAS_HINT_EXPAND)
         icon.size_hint_align_set(EVAS_HINT_FILL, EVAS_HINT_FILL)
-        icon.standard_set('software-center')
+        icon.standard_set('system-software-installer')
         icon.show()
         self.icon_object_set(icon.object_get())
 
@@ -267,9 +269,11 @@ class MainWin(StandardWindow):
         # show the window
         self.show()
         
-    def setPackageInfo(self, packageName, packageDes):
+    def setPackageInfo(self, packageDes):
+        print "Setting package information"
         self.currentDescription.text = packageDes
-        self.label.text = "Would you like to install <b>%s</b>?" %packageName
+        self.label.text = "Would you like to install <b>%s</b>?" %self.packageName
+        self.desFrame.text = "Description:"
 
     def buildDetailsWin(self):
         self.updateText = Entry(self, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
@@ -347,7 +351,7 @@ class MainWin(StandardWindow):
 
         self.desFrame = Frame(self, size_hint_weight=EXPAND_BOTH,
                               size_hint_align=FILL_BOTH)
-        self.desFrame.text = "Description"
+        self.desFrame.text = "Description:"
         self.desFrame.content = self.currentDescription
         self.desFrame.show()
         
@@ -385,24 +389,36 @@ class MainWin(StandardWindow):
         self.app.packageObj.mark_install()
         self.app.installUpdates()
         
-    def installDone(self, packageName, already=False, notfound=False):
-        self.desFrame.delete()
+    def installDone(self, already=False, notfound=False):
+        self.desFrame.text = ""
         
         if not already and not notfound:
             self.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
-            self.label.text = "<b>Package successfully installed.</b>"
+            self.label.text = "<b>Successful Package Installation!</b>"
+            self.currentDescription.text = "Package %s has been successfully installed on your computer. You should be able to find in your main menu under 'Applications' \n\nYou can close this window."%self.packageName
             
             self.installButton.text = "Info"
             self.installButton.callback_pressed_del(self.installPressed)
             self.installButton.callback_pressed_add(self.innerWinShow)
         elif already:
-            self.label.text = "<b>Package %s is already installed.</b>"%packageName
+            self.label.text = "<b>Package Already installed!</b>"
+            self.currentDescription.text = "It looks like package %s is already installed on your computer."%self.packageName
             self.installButton.delete()
         elif notfound:
-            self.label.text = "<b>Package %s not found in repository.</b>"%packageName
-            self.installButton.delete()
+            self.label.text = "<b>Package Not found!</b>"
+            self.currentDescription.text = "Cannot locate package %s for installation. If you have not done so already, try refreshing your package sources using the button below."%self.packageName
+            self.installButton.text = "Refresh"
+            self.installButton.callback_pressed_del(self.installPressed)
+            self.installButton.callback_pressed_add(self.refreshPressed)
         
         self.cancelButton.text = "Close"
+
+    def refreshPressed(self, bnt):
+        self.cancelButton.text = "Cancel"
+        self.installButton.text = "Install"
+        self.installButton.callback_pressed_add(self.installPressed)
+        self.installButton.callback_pressed_del(self.refreshPressed)
+        self.app.refreshPackages()
 
     def showDialog(self, title, msg):
         dia = Popup(self)
@@ -417,7 +433,9 @@ class MainWin(StandardWindow):
 
 
 class apturl(object):
-    def __init__(self):
+    def __init__(self, packageName):
+        self.packageName = packageName
+        
         self.packagesToUpdate = {}
         self.apt = ThreadedAPT()
 
@@ -427,22 +445,22 @@ class apturl(object):
 
         self._timer = ecore.Timer(0.5, self.updateStatus)
 
-        self.win = MainWin(self)
+        self.win = MainWin(self, self.packageName)
         
         self.packageObj = None
         self.packageVersion = None
         
-    def setPackageInfo(self, packageName):
-        if packageName in self.apt.cache:
-			self.packageObj = self.apt.cache[packageName]
-			self.packageVersion = self.apt.cache[packageName].versions[0]
-			packageDes = self.apt.cache[packageName].versions[0].description
+    def setPackageInfo(self):
+        if self.packageName in self.apt.cache:
+			self.packageObj = self.apt.cache[self.packageName]
+			self.packageVersion = self.apt.cache[self.packageName].versions[0]
+			packageDes = self.apt.cache[self.packageName].versions[0].description
 			if not self.packageObj.is_installed:
-				self.win.setPackageInfo(packageName, packageDes)
+				self.win.setPackageInfo(packageDes)
 			else:
-				self.win.installDone(packageName, already=True)
+				self.win.installDone(already=True)
         else:
-            self.win.installDone(packageName, notfound=True)
+            self.win.installDone(notfound=True)
 
     def updateStatus(self):
         global progressque
@@ -462,7 +480,7 @@ class apturl(object):
         self.apt.run("installUpdates", self.installDone)
 
     def installDone(self, result):
-        self.win.installDone("")
+        self.win.installDone()
 
     def refreshPackages(self):
         self.win.statusLabel.text = "<i>Refreshing package lists...</i>"
@@ -474,6 +492,7 @@ class apturl(object):
     def refreshPackagesDone(self, upgradables):
         #self.win.innerWinHide()
         self.win.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
+        self.setPackageInfo()
 
 
 if __name__ == "__main__":
@@ -501,10 +520,11 @@ if __name__ == "__main__":
     print package
     print refresh
     
-    app = apturl()
+    app = apturl(package)
     if refresh:
         app.refreshPackages()
-    app.setPackageInfo(package)
+    else:
+        app.setPackageInfo()
 
     elementary.run()
     app.apt.shutdown()
