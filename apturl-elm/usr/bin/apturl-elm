@@ -240,7 +240,7 @@ class MainWin(StandardWindow):
         
         # create the main window
         StandardWindow.__init__(self, "apturl-elm", "Bodhi Application Installer",
-                                autodel=True)
+                                autodel=True, size=(400, 0))
         self.callback_delete_request_add(lambda o: elementary.exit())
         self.app = app
 
@@ -266,20 +266,10 @@ class MainWin(StandardWindow):
         self.resize_object_add(self.flip)
         self.flip.show()
 
-        self.size=(400, 0)
+        self.center(True, True)
 
         # show the window
         self.show()
-        
-    def setPackageInfo(self, packageDes):
-        print "Setting package information"
-        self.currentDescription.text = packageDes
-        self.label.text = "Would you like to install <b>%s</b>?" %self.packageName
-        self.desFrame.text = "Description:"
-        validIcon = self.icon.standard_set(self.packageName)
-        print validIcon
-        if not validIcon:
-            self.icon.standard_set("system-software-installer")
 
     def buildDetailsWin(self):
         self.updateText = Entry(self, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
@@ -355,8 +345,8 @@ class MainWin(StandardWindow):
         self.currentDescription.line_wrap_set(True)
         self.currentDescription.show()
 
-        self.desFrame = Frame(self, size_hint_weight=EXPAND_BOTH,
-                              size_hint_align=FILL_BOTH)
+        self.desFrame = Frame(self, size_hint_weight=EXPAND_HORIZ,
+                              size_hint_align=FILL_HORIZ)
         self.desFrame.text = "Description:"
         self.desFrame.content = self.currentDescription
         self.desFrame.show()
@@ -408,7 +398,15 @@ class MainWin(StandardWindow):
     def installPressed(self, obj):
         self.app.packageObj.mark_install()
         self.app.installUpdates()
-        
+    
+    def setPackageInfo(self, packageDes):
+        self.currentDescription.text = packageDes
+        self.label.text = "Would you like to install <b>%s</b>?" %self.packageName
+        self.desFrame.text = "Description:"
+        validIcon = self.icon.standard_set(self.packageName)
+        if not validIcon:
+            self.icon.standard_set("system-software-installer")
+    
     def installDone(self, already=False, notfound=False):
         self.desFrame.text = ""
         
