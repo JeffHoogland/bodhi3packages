@@ -12,7 +12,7 @@ from efl.elementary.button import Button
 from efl.elementary.toolbar import Toolbar, ELM_TOOLBAR_SHRINK_MENU, \
     ELM_OBJECT_SELECT_MODE_NONE
 from efl.elementary.frame import Frame
-from efl.elementary.label import Label
+from efl.elementary.label import Label, ELM_WRAP_WORD
 from efl.elementary.scroller import Scroller
 from efl.elementary.check import Check
 from efl.elementary.progressbar import Progressbar
@@ -29,14 +29,10 @@ from efl.elementary.flip import Flip, ELM_FLIP_ROTATE_X_CENTER_AXIS, \
     ELM_FLIP_DIRECTION_LEFT, ELM_FLIP_DIRECTION_RIGHT, \
     ELM_FLIP_INTERACTION_NONE, ELM_FLIP_INTERACTION_ROTATE, \
     ELM_FLIP_INTERACTION_CUBE, ELM_FLIP_INTERACTION_PAGE
-import efl.ecore as ecore
+
+from elmextensions import EmbeddedTerminal
 
 import apt
-from apt.progress.base import OpProgress as BaseOpProgress
-from apt.progress.base import AcquireProgress as BaseAcquireProgress
-from apt.progress.base import InstallProgress as BaseInstallProgress
-import threading
-import Queue
 import sys
 
 EXPAND_BOTH = EVAS_HINT_EXPAND, EVAS_HINT_EXPAND
@@ -44,195 +40,6 @@ EXPAND_HORIZ = EVAS_HINT_EXPAND, 0.0
 FILL_BOTH = EVAS_HINT_FILL, EVAS_HINT_FILL
 FILL_HORIZ = EVAS_HINT_FILL, 0.5
 ALIGN_CENTER = 0.5, 0.5
-
-def statusMessage(text, text2="", text3="", text4=""):
-    global progressque
-    progressque.append("%s%s%s%s"%(text, text2, text3, text4))
-    #print(text, text2, text3, text4)
-
-class operationProgress(BaseOpProgress):
-    """Display the progress of operations such as opening the cache."""
-
-    def update(self, percent=None):
-        """Called periodically to update the user interface."""
-        BaseOpProgress.update(self, percent)
-        statusMessage("UPDATE_OP op:%s  subop:%s  percent:%.1f" % (
-              self.op, self.subop, self.percent))
-
-    def done(self):
-        """Called once an operation has been completed."""
-        BaseOpProgress.done(self)
-        statusMessage("DONE_OP")
-
-
-class updateProgress(BaseAcquireProgress):
-    """Called by the apt thread while updating packages cache info"""
-    def __init__(self):
-        BaseAcquireProgress.__init__(self)
-
-    def start(self):
-        BaseAcquireProgress.start(self)
-        statusMessage("### START UPDATE ###")
-
-    def stop(self):
-        BaseAcquireProgress.stop(self)
-        statusMessage("### UPDATE DONE ###")
-
-    def pulse(self, owner):
-        BaseAcquireProgress.pulse(self, owner)
-        statusMessage("PULSE items:%d/%d bytes:%.1f/%.1f rate:%.1f elapsed:%d" % (
-              self.current_items, self.total_items, 
-              self.current_bytes, self.total_bytes,
-              self.current_cps, self.elapsed_time))
-        return True # False to cancel the job
-
-    def ims_hit(self, item):
-        """ Invoked when an item is confirmed to be up-to-date """
-        statusMessage("IMS_HIT", item.description)
-    
-    def fetch(self, item):
-        """ Invoked when some of the item's data is fetched. """
-        statusMessage("FETCH", item.description)
-
-    def done(self, item):
-        """ Invoked when an item is successfully and completely fetched. """
-        statusMessage("DONE", item.description)
-
-    def fail(self, item):
-        """ Invoked when the process of fetching an item encounters an error. """
-        statusMessage("FAIL", item.description)
-
-
-class downloadProgress(BaseAcquireProgress):
-    """Called by the apt thread while downloading pakages"""
-    def __init__(self):
-        BaseAcquireProgress.__init__(self)
-
-    def start(self):
-        """Invoked when the Acquire process starts running."""
-        BaseAcquireProgress.start(self)
-        statusMessage("### START DOWNLOAD ###")
-
-    def stop(self):
-        """Invoked when the Acquire process stops running."""
-        BaseAcquireProgress.stop(self)
-        statusMessage("### DOWNLOAD DONE ###")
-
-    def pulse(self, owner):
-        """Periodically invoked while the Acquire process is underway."""
-        BaseAcquireProgress.stop(self)
-        statusMessage("PULSE  items:%d/%d  bytes:%.1f/%.1f  rate:%.1f  elapsed:%d" % (
-              self.current_items, self.total_items, 
-              self.current_bytes, self.total_bytes,
-              self.current_cps, self.elapsed_time))
-        return True # False to cancel the job
-
-    def ims_hit(self, item):
-        """Invoked when an item is confirmed to be up-to-date"""
-        statusMessage("IMS_HIT", item.description)
-    
-    def fetch(self, item):
-        """Invoked when some of the item's data is fetched."""
-        statusMessage("FETCH", item.description)
-
-    def done(self, item):
-        """Invoked when an item is successfully and completely fetched."""
-        statusMessage("DONE", item.description)
-
-    def fail(self, item):
-        """Invoked when the process of fetching an item encounters an error."""
-        statusMessage("FAIL", item.description)
-
-
-class installProgress(BaseInstallProgress):
-    """Called by the apt thread while installing pakages"""
-    def __init__(self):
-        BaseInstallProgress.__init__(self)
-
-    def conffile(current, new):
-        """Called when a conffile question from dpkg is detected."""
-        BaseInstallProgress.conffile(self, current, new)
-        statusMessage("CONFFILE", current, new)
-
-    def start_update(self):
-        """(Abstract) Start update."""
-        statusMessage("START_UPDATE")
-
-    def finish_update(self):
-        """(Abstract) Called when update has finished."""
-        statusMessage("FINISH_UPDATE")
-
-    def error(self, pkg, errormsg):
-        """(Abstract) Called when a error is detected during the install."""
-        statusMessage("ERROR_UPDATE", pkg, errormsg)
-
-    def status_change(self, pkg, percent, status):
-        """(Abstract) Called when the APT status changed."""
-        statusMessage("STATUS_CHANGE", pkg, percent, status)
-
-    def processing(self, pkg, stage):
-        """(Abstract) Sent just before a processing stage starts."""
-        statusMessage("PROCESSING", pkg, stage)
-
-
-class ThreadedAPT(object):
-    def __init__(self):
-        # the accessible apt cache object
-        self.cache = apt.Cache()
-
-        # private stuff
-        self._commandQueue = Queue.Queue()
-        self._replyQueue = Queue.Queue()
-        self._doneCB = None
-
-        # instances of the classes used to report progress
-        self._op_progress = operationProgress()
-        self._update_progress = updateProgress()
-        self._download_progress = downloadProgress()
-        self._install_progress = installProgress()
-
-        # add a timer to check the data returned by the worker thread
-        self._timer = ecore.Timer(0.1, self.checkReplyQueue)
-
-        # start the working thread
-        threading.Thread(target=self.threadFunc).start()
-
-    def run(self, action, doneCB=None):
-        self._doneCB = doneCB
-        self._commandQueue.put(getattr(self, action))
-
-    def installUpdates(self):
-        self.cache.commit(self._download_progress, self._install_progress)
-        self._replyQueue.put(True)
-
-    def shutdown(self):
-        self._timer.delete()
-        self._commandQueue.put('QUIT')
-
-    def checkReplyQueue(self):
-        if not self._replyQueue.empty():
-            result = self._replyQueue.get_nowait()
-            if callable(self._doneCB):
-                self._doneCB(result)
-        return True
-
-    # all the member below this point run in the thread
-    def threadFunc(self):
-        while True:
-            # wait here until an item in the queue is present
-            func = self._commandQueue.get()
-            if callable(func):
-                func()
-            elif func == 'QUIT':
-                break
-
-    def refreshPackages(self):
-        self.cache.update(self._update_progress)
-        self.cache.open(self._op_progress)
-
-        upgradables = [pak for pak in self.cache if pak.is_upgradable]
-        self._replyQueue.put(upgradables)
-
 
 class MainWin(StandardWindow):
     def __init__(self, app, packageName):
@@ -272,10 +79,8 @@ class MainWin(StandardWindow):
         self.show()
 
     def buildDetailsWin(self):
-        self.updateText = Entry(self, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
-        self.updateText.editable_set(False)
-        self.updateText.scrollable_set(True)
-        self.updateText.show()
+        self.updateTerm = EmbeddedTerminal(self, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
+        self.updateTerm.show()
 
         closebtn = Button(self)
         closebtn.text_set("Done")
@@ -283,7 +88,7 @@ class MainWin(StandardWindow):
         closebtn.show()
 
         box = Box(self, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
-        box.pack_end(self.updateText)
+        box.pack_end(self.updateTerm)
         box.pack_end(closebtn)
         box.show()
 
@@ -342,7 +147,7 @@ class MainWin(StandardWindow):
         self.currentDescription = Label(self,
                                         size_hint_weight=FILL_BOTH)
         self.currentDescription.text = "Select a package for information"
-        self.currentDescription.line_wrap_set(True)
+        self.currentDescription.line_wrap_set(ELM_WRAP_WORD)
         self.currentDescription.show()
 
         self.desFrame = Frame(self, size_hint_weight=EXPAND_HORIZ,
@@ -396,8 +201,9 @@ class MainWin(StandardWindow):
         return box
         
     def installPressed(self, obj):
-        self.app.packageObj.mark_install()
-        self.app.installUpdates()
+        self.statusLabel.text = "<i>Installing package...</i>"
+        self.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
+        self.updateTerm.runCommand("apt-get -y install %s"%self.packageName, self.installDone)
     
     def setPackageInfo(self, packageDes):
         self.currentDescription.text = packageDes
@@ -457,13 +263,7 @@ class apturl(object):
         self.packageName = packageName
         
         self.packagesToUpdate = {}
-        self.apt = ThreadedAPT()
-
-        #Takes status updates from apt to populate the GUI
-        global progressque
-        progressque = []
-
-        self._timer = ecore.Timer(0.5, self.updateStatus)
+        self.apt = apt.cache.Cache()
 
         self.win = MainWin(self, self.packageName)
         
@@ -471,10 +271,10 @@ class apturl(object):
         self.packageVersion = None
         
     def setPackageInfo(self):
-        if self.packageName in self.apt.cache:
-            self.packageObj = self.apt.cache[self.packageName]
-            self.packageVersion = self.apt.cache[self.packageName].versions[0]
-            packageDes = self.apt.cache[self.packageName].versions[0].description
+        if self.packageName in self.apt:
+            self.packageObj = self.apt[self.packageName]
+            self.packageVersion = self.apt[self.packageName].versions[0]
+            packageDes = self.apt[self.packageName].versions[0].description
             if not self.packageObj.is_installed:
                 self.win.setPackageInfo(packageDes)
             else:
@@ -482,36 +282,16 @@ class apturl(object):
         else:
             self.win.installDone(notfound=True)
 
-    def updateStatus(self):
-        global progressque
-
-        if len(progressque) > 0:
-            for update in progressque:
-                self.win.updateText.entry_append("%s"%update)
-                self.win.updateText.entry_append("<br>")
-
-            progressque = []
-
-        return True
-
-    def installUpdates(self):
-        self.win.statusLabel.text = "<i>Installing package...</i>"
-        self.win.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
-        self.apt.run("installUpdates", self.installDone)
-
-    def installDone(self, result):
-        self.win.installDone()
-
-    def refreshPackages(self):
+    def refreshPackages(self, flippy=True):
         self.win.statusLabel.text = "<i>Refreshing package lists...</i>"
-        self.win.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
+        if flippy:
+            self.win.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
 
-        self.apt.run("refreshPackages", self.refreshPackagesDone)
-        self.packagesToUpdate.clear()
+        self.win.updateTerm.runCommand("apt-get update", self.refreshPackagesDone)
 
-    def refreshPackagesDone(self, upgradables):
-        #self.win.innerWinHide()
+    def refreshPackagesDone(self):
         self.win.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
+        self.apt.open()
         self.setPackageInfo()
 
 
@@ -547,6 +327,5 @@ if __name__ == "__main__":
         app.setPackageInfo()
 
     elementary.run()
-    app.apt.shutdown()
 
     elementary.shutdown()
