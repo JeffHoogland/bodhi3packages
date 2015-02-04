@@ -66,8 +66,8 @@ class MainWin(StandardWindow):
         self.buildDetailsWin()
 
         # the flip object has the load screen on one side and the GUI on the other
-        self.flip = Flip(self, size_hint_weight=EXPAND_BOTH,
-                         size_hint_align=FILL_BOTH)
+        self.flip = Flip(self, size_hint_weight=EXPAND_HORIZ,
+                         size_hint_align=FILL_HORIZ)
         self.flip.part_content_set("front", self.mainBox)
         self.flip.part_content_set("back", self.loadBox)
         self.resize_object_add(self.flip)
@@ -220,7 +220,7 @@ class MainWin(StandardWindow):
             self.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
             self.label.text = "<b>Successful Package Installation!</b>"
             self.icon.standard_set("dialog-ok")
-            self.currentDescription.text = "Package %s has been successfully installed on your computer. You should be able to find in your main menu under 'Applications' \n\nYou can close this window."%self.packageName
+            self.currentDescription.text = "Package %s has been successfully installed on your computer. You can close this window."%self.packageName
             
             self.installButton.text = "Info"
             self.installButton.callback_pressed_del(self.installPressed)

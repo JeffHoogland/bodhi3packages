@@ -1,5 +1,5 @@
 Package: apturl-elm
-Version: 0.8
+Version: 0.9
 Section: main
 Priority: optional
 Replaces: apturl, apturl-common
