@@ -47,7 +47,8 @@ class MainWin(StandardWindow):
         
         # create the main window
         StandardWindow.__init__(self, "apturl-elm", "Bodhi Application Installer",
-                                autodel=True, size=(400, 0))
+                                autodel=True, size=(400, 150))
+        
         self.callback_delete_request_add(lambda o: elementary.exit())
         self.app = app
 
@@ -66,8 +67,8 @@ class MainWin(StandardWindow):
         self.buildDetailsWin()
 
         # the flip object has the load screen on one side and the GUI on the other
-        self.flip = Flip(self, size_hint_weight=EXPAND_HORIZ,
-                         size_hint_align=FILL_HORIZ)
+        self.flip = Flip(self, size_hint_weight=EXPAND_BOTH,
+                         size_hint_align=FILL_BOTH)
         self.flip.part_content_set("front", self.mainBox)
         self.flip.part_content_set("back", self.loadBox)
         self.resize_object_add(self.flip)
@@ -151,7 +152,7 @@ class MainWin(StandardWindow):
         self.currentDescription.show()
 
         self.desFrame = Frame(self, size_hint_weight=EXPAND_HORIZ,
-                              size_hint_align=FILL_HORIZ)
+                              size_hint_align=FILL_BOTH)
         self.desFrame.text = "Description:"
         self.desFrame.content = self.currentDescription
         self.desFrame.show()
@@ -162,8 +163,8 @@ class MainWin(StandardWindow):
             self.icon.standard_set("system-software-installer")
         self.icon.show()
         
-        self.desBox = Box(self, size_hint_weight=EXPAND_HORIZ,
-                              size_hint_align=FILL_HORIZ)
+        self.desBox = Box(self, size_hint_weight=EXPAND_BOTH,
+                              size_hint_align=FILL_BOTH)
         self.desBox.horizontal_set(True)
         self.desBox.show()
         
@@ -317,6 +318,9 @@ if __name__ == "__main__":
     else:
         refresh = False
         
+    #Always force a refresh to help users
+    refresh = True
+    
     print package
     print refresh
     
