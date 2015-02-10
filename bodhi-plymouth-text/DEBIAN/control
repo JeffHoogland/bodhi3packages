@@ -1,0 +1,11 @@
+Package: bodhi-plymouth-text
+Version: 0.2
+Section: main
+Priority: optional
+Architecture: all
+Depends: plymouth-theme-ubuntu-text
+Maintainer: Jeff Hoogland
+Uploaders: Eric Brown, Doug Yanez
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
+Description: Bodhi Linux Plymouth Text
+ A plymouth text for Bodhi Linux that is a fall back when the normal plymouth isn't supported

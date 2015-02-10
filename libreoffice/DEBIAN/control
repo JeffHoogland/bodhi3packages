@@ -1,9 +1,9 @@
 Package: libreoffice
-Version: 1:4.4.5bodhi1
+Version: 1:4.4.5bodhi2
 Section: main
 Priority: optional
 Architecture: all
-Depends: libreoffice-math, libreoffice-writer, libreoffice-calc, libreoffice-base, libreoffice-draw, libreoffice-impress, libreoffice4.4-en-us, libobasis4.4-ooolinguistic, libobasis4.4-gnome-integration, hunspell-en-us
+Depends: libreoffice-math, libreoffice-writer, libreoffice-calc, libreoffice-base, libreoffice-draw, libreoffice-impress, libreoffice4.4-en-us, libobasis4.4-ooolinguistic, libobasis4.4-gnome-integration, hunspell-en-us, libglu1-mesa
 Replaces: libreoffice-common
 Conflicts: libreoffice-common
 Maintainer: Jeff Hoogland

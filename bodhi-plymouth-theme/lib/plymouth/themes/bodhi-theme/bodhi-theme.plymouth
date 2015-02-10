@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Bodhi Theme
+Description=Bodhi Theme
+ModuleName=script
+
+[script]
+ImageDir=/lib/plymouth/themes/bodhi-theme
+ScriptFile=/lib/plymouth/themes/bodhi-theme/bodhi.script

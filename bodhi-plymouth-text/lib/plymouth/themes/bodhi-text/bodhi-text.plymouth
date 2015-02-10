@@ -1,0 +1,11 @@
+[Plymouth Theme]
+Name=Bodhi Text
+Description=Text mode theme based on bodhi-logo theme
+ModuleName=ubuntu-text
+
+[ubuntu-text]
+title=Bodhi Linux
+black=0x000000
+white=0xffffff
+brown=0x009900
+blue=0x009900

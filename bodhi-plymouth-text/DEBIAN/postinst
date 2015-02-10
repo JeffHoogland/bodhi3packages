@@ -19,8 +19,8 @@
 case "$1" in
     configure)
 	update-alternatives \
-		--install /lib/plymouth/themes/default.plymouth default.plymouth \
-		/lib/plymouth/themes/bodhi-theme/bodhi-theme.plymouth 10
+		--install /lib/plymouth/themes/text.plymouth text.plymouth \
+		/lib/plymouth/themes/bodhi-text/bodhi-text.plymouth 10
 
 	if which update-initramfs >/dev/null 2>&1
 	then
