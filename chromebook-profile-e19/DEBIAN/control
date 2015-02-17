@@ -1,8 +1,8 @@
 Package: chromebook-profile-e19
-Version: 0.4
+Version: 0.5
 Section: main
 Priority: optional
-Depends: e19
+Depends: e19, numix-icon-theme-bevel
 Conflicts: e17
 Replaces: bodhi-profile-e19
 Provides: bodhi-profile-e19

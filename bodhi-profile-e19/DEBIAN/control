@@ -1,8 +1,8 @@
 Package: bodhi-profile-e19
-Version: 0.18
+Version: 0.19
 Section: main
 Priority: optional
-Depends: e19, bodhi-background-edj
+Depends: e19, bodhi-background-edj, numix-icon-theme-bevel
 Conflicts: bodhi-profile-e17, e17, bodhi-profile-e18, e18
 Replaces: bodhi-profile-e17, bodhi-profile-e18
 Architecture: all

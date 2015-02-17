@@ -1,8 +1,8 @@
 Package: bodhi-profile-e17
-Version: 0.09
+Version: 0.10
 Section: main
 Priority: optional
-Depends: e17, bodhi-background-edj
+Depends: e17, bodhi-background-edj, numix-icon-theme-bevel
 Conflicts: e19, bodhi-profile-e19, e18, bodhi-profile-e18
 Architecture: all
 Maintainer: Doug Yanez

@@ -1,8 +1,8 @@
 Package: bodhi-desktop
-Version: 0.31
+Version: 0.32
 Section: main
 Priority: optional
-Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, enlightenment-theme-gtk, esudo, bodhi-skel, e19, bodhi-profile-e19, eepdater, epad, bodhi-maxo-remix, bodhi-plymouth-theme, bodhi-plymouth-text, evas-generic-loaders, bc, bash-completion, lupin-casper, epulse-e19, policykit-desktop-privileges, terminology, packagekit, lxmenu-data, xdg-utils, bodhi-quickstart, python-dbus, apturl-elm, udisks2, ephoto, bodhi-dpkg-settings
+Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, enlightenment-theme-gtk, esudo, bodhi-skel, e19, bodhi-profile-e19, eepdater, epad, bodhi-plymouth-theme, bodhi-plymouth-text, evas-generic-loaders, bc, bash-completion, lupin-casper, epulse-e19, policykit-desktop-privileges, terminology, packagekit, lxmenu-data, xdg-utils, bodhi-quickstart, python-dbus, apturl-elm, udisks2, ephoto, bodhi-dpkg-settings
 Conflicts: e17, bodhi-profile-e17, bodhi-desktop-e17, e18, bodhi-profile-e18, bodhi-desktop-e18
 Replaces: bodhi-desktop-e17, bodhi-desktop-e18
 Architecture: all
