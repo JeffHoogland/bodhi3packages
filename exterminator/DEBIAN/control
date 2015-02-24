@@ -1,0 +1,10 @@
+Package: exterminator
+Version: 0.1.0bodhi1
+Section: main
+Priority: optional
+Architecture: all
+Depends: python-efl, python-elm-extensions
+Maintainer: Jeff Hoogland
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
+Description: Exterminator Task Manager
+ An Elementary GUI for killing tasks written in python
