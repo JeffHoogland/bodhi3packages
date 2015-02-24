@@ -1,9 +1,9 @@
 Package: exterminator
-Version: 0.1.0bodhi1
+Version: 0.1.0bodhi2
 Section: main
 Priority: optional
 Architecture: all
-Depends: python-efl, python-elm-extensions
+Depends: python-efl, python-elm-extensions, python-psutil
 Maintainer: Jeff Hoogland
 #Vcs-Browser: https://github.com/Feneric/bodhi3packages
 Description: Exterminator Task Manager
