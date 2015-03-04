@@ -1,0 +1,9 @@
+Package: python-elm-extensions
+Version: 0.1.2
+Section: main
+Priority: optional
+Architecture: all
+Depends: python-efl
+Maintainer: Jeff Hoogland
+Description: Python Elementary Extensions
+ Extra elementary widget library for python.
