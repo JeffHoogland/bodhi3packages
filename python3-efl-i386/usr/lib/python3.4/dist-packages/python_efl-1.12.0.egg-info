@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: python-efl
+Version: 1.12.0
+Summary: Python bindings for Enlightenment Foundation Libraries
+Home-page: http://www.enlightenment.org
+Author: Kai Huuhko, Davide Andreoli
+Author-email: kai.huuhko@gmail.com, dave@gurumeditation.it
+License: GNU Lesser General Public License (LGPL)
+Description: UNKNOWN
+Platform: UNKNOWN

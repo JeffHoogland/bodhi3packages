@@ -1,0 +1,9 @@
+Package: python3-efl
+Version: 1.12.0bodhi1
+Section: main
+Priority: optional
+Architecture: i386
+Depends: python3, elementary
+Maintainer: Jeff Hoogland
+Description: Python3 Bindings for Elementary and EFLs
+ Python3 Bindings for Elementary and EFLs
