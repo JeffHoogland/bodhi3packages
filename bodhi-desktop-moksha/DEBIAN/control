@@ -2,7 +2,7 @@ Package: bodhi-desktop-moksha
 Version: 0.1
 Section: main
 Priority: optional
-Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, radiance-graphite, esudo, bodhi-skel, elaptopcheck, moksha, bodhi-profile-moksha, bodhi-plymouth-theme, bodhi-plymouth-text, evas-generic-loaders, bc, bash-completion, lupin-casper, policykit-desktop-privileges, terminology, packagekit, lxmenu-data, xdg-utils, bodhi-quickstart, python-dbus, apturl-elm, udisks, bodhi-dpkg-settings, places-moksha, moksha-pulsemixer
+Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, esudo, bodhi-skel, elaptopcheck, moksha, bodhi-profile-moksha, bodhi-plymouth-theme, bodhi-plymouth-text, evas-generic-loaders, bc, bash-completion, lupin-casper, policykit-desktop-privileges, terminology, packagekit, lxmenu-data, xdg-utils, bodhi-quickstart, python-dbus, apturl-elm, udisks, bodhi-dpkg-settings, places-moksha, moksha-pulsemixer
 Recommends: eepdater, epad, ephoto, pcmanfm, ecomorph, ecomp
 Conflicts: bodhi-desktop, bodhi-desktop-e17
 Architecture: all
