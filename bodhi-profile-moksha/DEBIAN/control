@@ -1,0 +1,12 @@
+Package: bodhi-profile-moksha
+Version: 0.1
+Section: main
+Priority: optional
+Depends: moksha, bodhi-background-edj, bodhi-awoken, radiance-graphite, bodhi-theme-moksha-radiance
+Conflicts: e19, e18, e17, enlightenment
+Architecture: all
+Maintainer: Doug Yanez
+Uploaders: Jeff Hoogland, Eric Brown
+#Vcs-Browser: https://github.com/Feneric/bodhi3packages
+Description: Bodhi Moksha profile
+ The default Moksha profile for Bodhi Linux
