@@ -4,7 +4,7 @@ Section: main
 Priority: optional
 Depends: bodhi-icons, bodhi-lightdm-theme, bodhi-slideshow, esudo, bodhi-skel, elaptopcheck, moksha, bodhi-profile-moksha, bodhi-plymouth-theme, bodhi-plymouth-text, evas-generic-loaders, bc, bash-completion, lupin-casper, policykit-desktop-privileges, terminology, packagekit, lxmenu-data, xdg-utils, bodhi-quickstart, python-dbus, apturl-elm, udisks, bodhi-dpkg-settings, places-moksha, moksha-pulsemixer
 Recommends: eepdater, epad, ephoto, thunar, ecomorph, ecomp
-Conflicts: bodhi-desktop, bodhi-desktop-e17, bodhi-profile-e19, bodhi-profile-e17, bodhi-profiles-extra-e17, epulse-e19
+Conflicts: bodhi-desktop, bodhi-desktop-e17, bodhi-profile-e19, bodhi-profile-e17, epulse-e19, epulse-e17
 Architecture: all
 Maintainer: Doug Yanez
 Uploaders: Jeff Hoogland, Eric Brown
