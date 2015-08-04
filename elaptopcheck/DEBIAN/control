@@ -1,7 +1,8 @@
 Package: elaptopcheck
-Version: 1.01
+Version: 1.02
 Section: main
 Priority: optional
+Depends: acpi
 Architecture: all
 Maintainer: Jeff Hoogland
 Uploaders: Eric Brown, Doug Yanez
