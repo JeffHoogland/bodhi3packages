@@ -1,5 +1,5 @@
 Package: bodhi-background-edj
-Version: 0.01
+Version: 0.02
 Section: main
 Priority: optional
 Architecture: all
