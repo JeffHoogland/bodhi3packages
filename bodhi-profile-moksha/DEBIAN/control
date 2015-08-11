@@ -1,5 +1,5 @@
 Package: bodhi-profile-moksha
-Version: 0.9
+Version: 0.10
 Section: main
 Priority: optional
 Depends: moksha, bodhi-background-edj, bodhi-awoken, radiance-graphite, bodhi-theme-moksha-radiance, places-moksha, moksha-pulsemixer
