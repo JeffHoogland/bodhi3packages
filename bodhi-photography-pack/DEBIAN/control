@@ -1,0 +1,12 @@
+Package: bodhi-photography-pack
+Version: 0.01
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: enlightenment
+Recommends: nautilus, gwenview, rawtherapee, darktable, gimp, gimp-gmic, gimp-ufraw, gimp-lensfun, gimp-plugin-registry, gimp-data-extras, gimp-texturize, gimp-dcraw, printer-driver-gutenprint, krename, xnconvert, hugin
+Maintainer: Doug Yanez <Deepspeed@bodhilinux.com>
+Description: A Bodhi meta-package for photographers
+ Bodhi Linux meta-package for professional photographers.
+ This is a pacakge made for Ripomac and any other users looking for a
+ professional-grade suite of applications to work with photos on Bodhi.
