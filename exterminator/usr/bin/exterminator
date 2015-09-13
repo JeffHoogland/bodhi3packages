@@ -5,7 +5,7 @@
 __author__ = "Jeff Hoogland"
 __contributors__ = ["Jeff Hoogland", "Scimmia"]
 __copyright__ = "Copyright (C) 2014 Bodhi Linux"
-__version__ = "0.2.3"
+__version__ = "0.2.4"
 __description__ = 'A simple task manager for the Enlightenment Desktop.'
 __github__ = 'http://jeffhoogland.github.io/Exterminator/'
 __source__ = 'Source code and bug reports: {0}'.format(__github__)
@@ -250,6 +250,13 @@ class TaskManager(Box):
         
         self.pidstoupdate = {}
         self.pidstoremove = []
+        
+        try:
+            #psutil 2.x method
+            self.cpuCount = psutil.cpu_count()
+        except:
+            #psutil 1.x method
+            self.cpuCount = psutil.NUM_CPUS
 
     def update(self, stuff=None, otherstuff=None):
         if not self.gettingData:
@@ -320,7 +327,7 @@ class TaskManager(Box):
                     self.pidstoupdate[p.pid] = { "pid":p.pid, 
                             "name": name, 
                             "username": username, 
-                            "cpu": p.get_cpu_percent(interval=0) / 10.0, 
+                            "cpu": p.get_cpu_percent(interval=0) / self.cpuCount, 
                             "mem": float(p.get_memory_info().rss)/1048576}
             except:
                 pass
