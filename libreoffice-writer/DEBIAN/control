@@ -1,10 +1,10 @@
 Package: libreoffice-writer
-Version: 1:4.4.0bodhi1
+Version: 1:5.0.0bodhi1
 Section: main
 Priority: optional
 Architecture: all
-Depends: libreoffice4.4-writer, libreoffice4.4-en-us, libobasis4.4-ooolinguistic
+Depends: libreoffice5.0-writer, libreoffice5.0-en-us, libobasis5.0-ooolinguistic
 Maintainer: Jeff Hoogland
 Description: libreoffice-writer
-  A meta package to transition to LibreOffice 4.4
+  A meta package to transition to LibreOffice 5.0
 
