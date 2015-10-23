@@ -1,0 +1,9 @@
+Package: python-neet
+Version: 0.1.1bodhi1
+Section: main
+Priority: optional
+Architecture: all
+Depends: python-efl
+Maintainer: Jeff Hoogland
+Description: Python Neet Library
+ A python library for reading and writing EET data files.
