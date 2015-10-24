@@ -1,0 +1,12 @@
+[Desktop Entry]
+Hidden=false
+Exec=swami
+Icon=preferences-system
+Type=Application
+Categories=System;
+NoDisplay=false
+StartupNotify=true
+Comment=An elementary frontend for configuring the Moksha desktop
+Terminal=false
+Name=Swami
+StartupWMClass=swami

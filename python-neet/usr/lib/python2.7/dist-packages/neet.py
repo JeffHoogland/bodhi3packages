@@ -135,7 +135,12 @@ class EETFile(object):
 
         # save the new config
         with open("%s/%s"%(TMPDIR, self.tmpFile), 'w') as f:
-            f.write(self.ecfgParse.text())
+            if isinstance(self.ecfgParse, basestring):
+                f.write(self.ecfgParse)
+                compArg = "-i"
+            else:
+                f.write(self.ecfgParse.text())
+                compArg = "-e"
         
         #if save location exists create a backup before writing over it
         if os.path.isfile(saveLocation):
@@ -149,7 +154,7 @@ class EETFile(object):
         
         #print "writing %s from %s/%s"%(saveLocation, TMPDIR, self.tmpFile)
         
-        cmd = ecore.Exe("eet -e %s config %s/%s 1"%(saveLocation, TMPDIR, self.tmpFile))
+        cmd = ecore.Exe("eet %s %s config %s/%s 1"%(compArg, saveLocation, TMPDIR, self.tmpFile))
         
         while not os.path.isfile(saveLocation):
             time.sleep(0.5)
