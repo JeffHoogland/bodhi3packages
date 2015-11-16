@@ -11,7 +11,7 @@ from efl import elementary
 from efl.elementary.button import Button
 from efl.elementary.box import Box
 from efl.elementary.icon import Icon
-from efl.elementary.layout import Layout
+from efl.elementary.scroller import Scroller
 
 from efl import edje
 from efl.edje import Edje
@@ -51,18 +51,22 @@ class SwamiModule(Box):
         self.currentPreview = None
         self.selectedWall = None
         
-        self.previewBox = previewBox = Box(self, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
+        self.flip = Flip(self, size_hint_weight=EXPAND_BOTH,
+                         size_hint_align=FILL_BOTH)
+        
+        wallBox = Box(self.flip, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
+        wallBox.horizontal_set(True)
+        
+        self.previewBox = previewBox = Scroller(wallBox, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
         previewBox.show()
         
-        self.wallList = List(self, size_hint_weight=(0.25, 1.0), 
+        self.wallList = List(self, size_hint_weight=(0.35, 1.0), 
                     size_hint_align=FILL_BOTH, mode=ELM_LIST_COMPRESS)
         #Adds walls in the WallPaths to the list for selection
         self.populateWalls()
         self.wallList.go()
         self.wallList.show()
         
-        wallBox = Box(self, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
-        wallBox.horizontal_set(True)
         wallBox.pack_end(self.wallList)
         wallBox.pack_end(self.previewBox)
         wallBox.show()
@@ -78,8 +82,6 @@ class SwamiModule(Box):
         
         # Flip object has the file selector on one side
         #   and the GUI on the other
-        self.flip = Flip(self, size_hint_weight=EXPAND_BOTH,
-                         size_hint_align=FILL_BOTH)
         self.flip.part_content_set("front", wallBox)
         self.flip.part_content_set("back", self.fs)
         self.flip.show()
@@ -134,7 +136,7 @@ class SwamiModule(Box):
         self.wallSelected(None, listItem)
     
     def wallSelected(self, obj, item):
-        self.previewBox.clear()
+        #self.previewBox.clear()
         
         #edjeObj = Layout(self.previewBox, size_hint_weight=EXPAND_BOTH, size_hint_align=FILL_BOTH)
         
@@ -144,7 +146,7 @@ class SwamiModule(Box):
         edjeObj.file_set(filePath, "e/desktop/background")
         edjeObj.show()
         
-        self.previewBox.pack_end(edjeObj)
+        self.previewBox.content_set(edjeObj)
         self.currentPreview = edjeObj
         self.selectedWall = filePath
     
