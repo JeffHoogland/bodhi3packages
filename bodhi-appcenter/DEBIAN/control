@@ -1,0 +1,10 @@
+Package: bodhi-appcenter
+Version: 0.1
+Section: main
+Priority: optional
+Depends: midori
+Architecture: all
+Maintainer: Jeff Hoogland
+#Vcs-Browser: https://github.com/Deepspeed/bodhi3packages
+Description: Bodhi AppCenter Launcher
+ A menu entry that opens Midori to the Bodhi AppCenter
