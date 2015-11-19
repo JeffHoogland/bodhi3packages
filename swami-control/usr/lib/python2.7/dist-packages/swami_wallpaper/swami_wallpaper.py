@@ -5,6 +5,8 @@ import webbrowser
 import shutil
 import neet
 import time
+import dbus
+import shutil
 
 from efl.evas import EVAS_HINT_EXPAND, EVAS_HINT_FILL
 from efl import elementary
@@ -12,6 +14,8 @@ from efl.elementary.button import Button
 from efl.elementary.box import Box
 from efl.elementary.icon import Icon
 from efl.elementary.scroller import Scroller
+
+from efl import ecore
 
 from efl import edje
 from efl.edje import Edje
@@ -21,6 +25,10 @@ from efl.elementary.list import List, ELM_LIST_LIMIT, ELM_LIST_COMPRESS
 from elmextensions import FileSelector
 from elmextensions import StandardButton
 
+UserHome = os.path.expanduser("~")
+
+OutputDir="%s/.e/e/backgrounds"%UserHome
+
 EXPAND_BOTH = EVAS_HINT_EXPAND, EVAS_HINT_EXPAND
 EXPAND_HORIZ = EVAS_HINT_EXPAND, 0.0
 FILL_BOTH = EVAS_HINT_FILL, EVAS_HINT_FILL
@@ -28,7 +36,7 @@ FILL_HORIZ = EVAS_HINT_FILL, 0.5
 ALIGN_CENTER = 0.5, 0.5
 
 WallPaths = [ "/usr/share/enlightenment/data/backgrounds/",
-                "%s/.e/e/backgrounds/"%os.path.expanduser("~")]
+                "%s/.e/e/backgrounds/"%UserHome]
 
 class SwamiModule(Box):
     def __init__(self, rent):
@@ -150,8 +158,24 @@ class SwamiModule(Box):
         self.currentPreview = edjeObj
         self.selectedWall = filePath
     
-    def fileSelected(self, fs, ourFile):
+    def fileSelected(self, fs, ourPath):
         self.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
+        
+        #move the file to temp dir / rename it so we can work around a issue with spaces in file names
+        tmpCount = 1
+        while os.path.isfile("/tmp/swamiwall_%s"%tmpCount):
+            tmpCount += 1
+        
+        shutil.copy2(ourPath, '/tmp/swamiwall_%s'%tmpCount)
+        
+        time.sleep(1)
+        
+        ourFile = os.path.splitext(os.path.basename(ourPath))[0].replace(" ", "")
+        
+        ecore.Exe('convertimage.sh %s %s'%('/tmp/swamiwall_%s'%tmpCount, ourFile))
+        
+        time.sleep(1)
+        self.addWall("%s.edj"%ourFile, "%s/.e/e/backgrounds/"%UserHome)
     
     def returnPressed(self, btn):
         self.parent.returnMain()
@@ -160,7 +184,29 @@ class SwamiModule(Box):
         self.flip.go(ELM_FLIP_ROTATE_YZ_CENTER_AXIS)
     
     def applyPressed(self, btn):
-        pass
+        #Dbus call to stop Moksha from fighting with our changes
+        bus = dbus.SessionBus()
+        obj = bus.get_object('org.enlightenment.wm.service', '/org/enlightenment/wm/RemoteObject')
+        iface = dbus.Interface(obj, dbus_interface='org.enlightenment.wm.Config')
+        iface.SaveBlock()
+        
+        #Update Moksha Theme
+        #Get existing profile
+        eProfileFile = neet.EETFile()
+        eProfileFile.importFile("%s/.e/e/config/profile.cfg"%UserHome, "-x")
+        eProfile = eProfileFile.readValue()
+        
+        eCFG = neet.EETFile()
+        eCFG.importFile("%s/.e/e/config/%s/e.cfg"%(UserHome, eProfile))
+        ewallData = eCFG.readValue((("value", "desktop_default_background"),))
+        
+        ewallData.data = self.selectedWall
+        #print ewallData
+        eCFG.saveData()
+        
+        #Give Moksha control of the config data again
+        iface.Load()
+        iface.SaveRelease()
     
     def shutDownFS(self, arg):
         self.fs.shutdown()
