@@ -1,12 +1,12 @@
 Package: libreoffice
-Version: 1:5.0.2bodhi1
+Version: 1:5.1.0bodhi2
 Section: main
 Priority: optional
 Architecture: all
-Depends: libreoffice-math, libreoffice-writer, libreoffice-calc, libreoffice-base, libreoffice-draw, libreoffice-impress, libreoffice5.0-en-us, libobasis5.0-ooolinguistic, libobasis5.0-gnome-integration, hunspell-en-us, libglu1-mesa
+Depends: libreoffice-math, libreoffice-writer, libreoffice-calc, libreoffice-base, libreoffice-draw, libreoffice-impress, libreoffice5.1-en-us, libobasis5.1-ooolinguistic, libobasis5.1-gnome-integration, hunspell-en-us, libglu1-mesa
 Replaces: libreoffice-common
 Conflicts: libreoffice-common
 Maintainer: Jeff Hoogland
-Description: Libreoffice 5.0
+Description: Libreoffice 5.1
   LibreOffice is a free and open source office suite, developed by The Document Foundation. It was forked from OpenOffice.org in 2010, which was an open-sourced version of the earlier StarOffice. The LibreOffice suite comprises programs to do word processing, spreadsheets, slideshows, diagrams and drawings, maintain databases, and compose mathematical formulae.
 
